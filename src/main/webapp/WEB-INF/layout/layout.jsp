@@ -6,17 +6,17 @@
 <html>
 <head>
     <title><spring:message code="spring.social.mvc.normal.title"/></title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/font-awesome.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/social-buttons-3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static-old/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static-old/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static-old/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static-old/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static-old/css/social-buttons-3.css"/>
     
 
     
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/vendor/jquery-2.0.3.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/vendor/bootstrap.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/app/fb-hack.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static-old/js/vendor/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static-old/js/vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static-old/js/app/fb-hack.js"></script>
     <sitemesh:write property="head"/>
 </head>
 <body>
