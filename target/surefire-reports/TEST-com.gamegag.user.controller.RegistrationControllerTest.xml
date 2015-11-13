@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gamegag.user.controller.RegistrationControllerTest" time="1.227" tests="14" errors="0" skipped="0" failures="0">
+<testsuite name="com.gamegag.user.controller.RegistrationControllerTest" time="0.784" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_65\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="user.language.format" value="de"/>
@@ -62,18 +62,18 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="showRegistrationForm_SocialSignInWithAllValues_ShouldRenderRegistrationPageWithAllValuesSet" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.145"/>
-  <testcase name="registerUserAccount_NormalRegistrationAndPasswordMismatch_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.708"/>
-  <testcase name="registerUserAccount_SocialSignInAndTooLongValues_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.165"/>
-  <testcase name="registerUserAccount_NormalRegistrationAndTooLongValues_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.02"/>
-  <testcase name="registerUserAccount_SocialSignInAndEmailExist_ShouldRenderRegistrationFormWithFieldError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.059"/>
-  <testcase name="registerUserAccount_SocialSignInAndMalformedEmail_ShouldRenderRegistrationFormWithValidationError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.022"/>
-  <testcase name="showRegistrationForm_NormalRegistration_ShouldRenderRegistrationPageWithEmptyForm" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.026"/>
-  <testcase name="registerUserAccount_NormalRegistrationAndMalformedEmail_ShouldRenderRegistrationFormWithValidationError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0"/>
-  <testcase name="registerUserAccount_SocialSignInAndEmptyForm_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.026"/>
-  <testcase name="registerUserAccount_NormalRegistration_ShouldCreateNewUserAccountAndRenderHomePage" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.035"/>
-  <testcase name="registerUserAccount_SocialSignIn_ShouldCreateNewUserAccountAndRenderHomePage" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0"/>
-  <testcase name="showRegistrationForm_SocialSignInWithNoValues_ShouldRenderRegistrationPageWithProviderDetails" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0"/>
-  <testcase name="registerUserAccount_NormalRegistrationAndEmailExists_ShouldRenderRegistrationFormWithFieldError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.002"/>
-  <testcase name="registerUserAccount_NormalRegistrationAndEmptyForm_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.019"/>
+  <testcase name="showRegistrationForm_SocialSignInWithAllValues_ShouldRenderRegistrationPageWithAllValuesSet" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0"/>
+  <testcase name="registerUserAccount_NormalRegistrationAndPasswordMismatch_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.232"/>
+  <testcase name="registerUserAccount_SocialSignInAndTooLongValues_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.284"/>
+  <testcase name="registerUserAccount_NormalRegistrationAndTooLongValues_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.037"/>
+  <testcase name="registerUserAccount_SocialSignInAndEmailExist_ShouldRenderRegistrationFormWithFieldError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.014"/>
+  <testcase name="registerUserAccount_SocialSignInAndMalformedEmail_ShouldRenderRegistrationFormWithValidationError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.039"/>
+  <testcase name="showRegistrationForm_NormalRegistration_ShouldRenderRegistrationPageWithEmptyForm" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.055"/>
+  <testcase name="registerUserAccount_NormalRegistrationAndMalformedEmail_ShouldRenderRegistrationFormWithValidationError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.01"/>
+  <testcase name="registerUserAccount_SocialSignInAndEmptyForm_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.016"/>
+  <testcase name="registerUserAccount_NormalRegistration_ShouldCreateNewUserAccountAndRenderHomePage" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.025"/>
+  <testcase name="registerUserAccount_SocialSignIn_ShouldCreateNewUserAccountAndRenderHomePage" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.037"/>
+  <testcase name="showRegistrationForm_SocialSignInWithNoValues_ShouldRenderRegistrationPageWithProviderDetails" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.001"/>
+  <testcase name="registerUserAccount_NormalRegistrationAndEmailExists_ShouldRenderRegistrationFormWithFieldError" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.019"/>
+  <testcase name="registerUserAccount_NormalRegistrationAndEmptyForm_ShouldRenderRegistrationFormWithValidationErrors" classname="com.gamegag.user.controller.RegistrationControllerTest" time="0.015"/>
 </testsuite>

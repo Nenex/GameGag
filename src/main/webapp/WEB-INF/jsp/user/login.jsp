@@ -15,7 +15,7 @@
 <sec:authorize access="isAnonymous()">
     <div class="panel panel-default">
         <div class="panel-body">
-            <h2><spring:message code="label.login.form.title"/></h2>
+           <%--  <h2><spring:message code="label.login.form.title"/></h2> --%>
             <c:if test="${param.error eq 'bad_credentials'}">
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

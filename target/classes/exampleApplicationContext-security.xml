@@ -25,14 +25,20 @@
                 logout-success-url="/login"
                 delete-cookies="JESSIONID"/>
         <!-- Anyone can access these urls -->
+        
+        <security:intercept-url pattern="/auth/**" access="permitAll"/>
         <security:intercept-url pattern="/auth/**" access="permitAll"/>
         <security:intercept-url pattern="/login" access="permitAll"/>
         <security:intercept-url pattern="/signin/**" access="permitAll"/>
+        <security:intercept-url pattern="/blog/" access="permitAll"/>
         <security:intercept-url pattern="/signup/**" access="permitAll"/>
         <security:intercept-url pattern="/user/register/**" access="permitAll"/>
 
         <!-- The rest of our application is protected. -->
-        <security:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        
+        <security:access-denied-handler error-page="/403" />
 
         <!-- Adds social authentication filter to the Spring Security filter chain. -->
         <security:custom-filter ref="socialAuthenticationFilter" before="PRE_AUTH_FILTER" />

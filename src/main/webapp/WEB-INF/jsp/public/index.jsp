@@ -17,11 +17,5 @@
 		</h1>
 	</div>
 </sec:authorize>
-<sec:authorize access="isAnonymous()">
- <script type="text/javascript">window.location.href="/login";</script>
-	
-</sec:authorize>
-
-
 </body>
 </html>

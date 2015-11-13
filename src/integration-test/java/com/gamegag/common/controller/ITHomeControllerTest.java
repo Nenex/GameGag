@@ -67,12 +67,12 @@ public class ITHomeControllerTest {
 
     @Test
     public void showHomePage_AsFacebookUser_ShouldRenderHomePage() throws Exception {
-        mockMvc.perform(get("/")
+        mockMvc.perform(get("/public")
                 .with(userDetailsService(IntegrationTestConstants.User.FACEBOOK_USER.getUsername()))
         )
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/index.jsp"));
+                .andExpect(forwardedUrl("/WEB-INF/jsp/public/index.jsp"));
     }
 
     @Test

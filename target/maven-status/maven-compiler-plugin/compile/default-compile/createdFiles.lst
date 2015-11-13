@@ -6,6 +6,7 @@ com\gamegag\user\controller\RegistrationController.class
 com\gamegag\user\validation\PasswordsNotEqual.class
 com\gamegag\user\validation\PasswordsNotEqualValidator.class
 com\gamegag\common\controller\HomeController.class
+com\gamegag\user\model\Test.class
 com\gamegag\blog\DAOApprenti.class
 com\gamegag\config\SocialContext.class
 com\gamegag\user\service\UserService.class
@@ -13,6 +14,7 @@ com\gamegag\blog\HomeController.class
 com\gamegag\config\ExampleApplicationConfig.class
 com\gamegag\config\PersistenceContext.class
 com\gamegag\user\model\Role.class
+com\gamegag\user\model\Test$Builder.class
 com\gamegag\security\service\RepositoryUserDetailsService.class
 com\gamegag\security\dto\ExampleUserDetails$Builder.class
 com\gamegag\user\dto\RegistrationForm.class
@@ -26,6 +28,7 @@ com\gamegag\config\ExampleApplicationContext.class
 com\gamegag\user\model\SocialMediaService.class
 com\gamegag\security\controller\SignUpController.class
 com\gamegag\blog\Apprenti.class
+com\gamegag\common\controller\AdminController.class
 com\gamegag\user\service\RepositoryUserService.class
 com\gamegag\user\validation\PasswordsNotEmptyValidator.class
 com\gamegag\common\model\BaseEntity.class
