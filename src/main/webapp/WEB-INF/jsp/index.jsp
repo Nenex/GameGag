@@ -68,8 +68,7 @@
       <script src="${pageContext.request.contextPath}/static/js/html5shiv.js"></script>
       <script src="${pageContext.request.contextPath}/static/js/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/app/fb-hack.js"></script>
-</head>
+   </head>
 
 <body data-twttr-rendered="true" data-spy="scroll" data-target="#my-nav">
 
@@ -143,6 +142,8 @@
 <script src="${pageContext.request.contextPath}/static/js/jquery.placeholder.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/switcher.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/app/fb-hack.js"></script>
+
 <script>
 jQuery(document).ready(function() {
 	// Pie Charts

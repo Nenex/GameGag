@@ -1,8 +1,4 @@
 <sitemesh>	
-<mapping>
-	    <path>/WEB-INF/jsp/</path>
-	    <decorator>/WEB-INF/layout/blank.jsp</decorator>
-	</mapping>
 	<mapping>
 	    <path>/WEB-INF/jsp/public/*</path>
 	    <decorator>/WEB-INF/layout/layout.jsp</decorator>
