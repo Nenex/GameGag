@@ -62,7 +62,6 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/perfect-scrollbar.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/magnific-popup.css">
-	<link rel="stylesheet" type="text/css" id="color" href="${pageContext.request.contextPath}/static/css/colors/color-default.css">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="${pageContext.request.contextPath}/static/js/html5shiv.js"></script>
@@ -121,24 +120,13 @@
 <script src="${pageContext.request.contextPath}/static/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/modernizr.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.funnyText.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/masonry.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/jquery.easypiechart.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/jquery.appear.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.cslider.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/masonry.js" type="text/javascript"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.mixitup.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/classie.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/imagesloaded.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.parallax-1.1.3.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/parallaxInit.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.flexisel.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.mousewheel.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/perfect-scrollbar.js"></script>
+ <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/perfect-scrollbar.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/carousel-slider.js"></script>
-<script type='text/javascript' src="${pageContext.request.contextPath}/static/js/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/tweetable.jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.timeago.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/jquery.placeholder.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/switcher.js"></script>
