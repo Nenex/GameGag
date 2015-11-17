@@ -79,7 +79,7 @@
 				<div class="col-md-8 col-md-offset-2">
 					<!--logo-->
 					<div class="main-photo" id="header-photo">
-						<img width="120" height="120" class="banner-logo pulsate-opacity" src="${pageContext.request.contextPath}/static/images/01_logo.png" alt="">
+						<img width="200" height="200" class="banner-logo pulsate-opacity" src="${pageContext.request.contextPath}/static/images/01_logo.png" alt="">
 					</div>
 					<!-- heading -->
 					<h1 style="opacity: 1; padding-top: 0px;" class="funny-text">Game GaG</h1>
@@ -97,7 +97,7 @@
 					</div>
 					<!--Action button-->
 					<p>
-						<a href="/public" class="btn btn-outline-white btn-small btnmore">Enter</a>
+						<a  id="next" href="/public" class="btn btn-outline-white btn-small btnmore">Enter</a>
 					</p>
 				</div>
 			</div>
@@ -130,7 +130,7 @@
 <script src="${pageContext.request.contextPath}/static/js/jquery.placeholder.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/switcher.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/app/fb-hack.js"></script>
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/app/fb-hack.js"></script> --%>
 
 <script>
 jQuery(document).ready(function() {
@@ -166,12 +166,33 @@ jQuery(document).ready(function() {
 			'use strict';
 			$('.funny-text').funnyText({
 				speed: 700,
-				activeColor: '#ff0000',
+				activeColor: '#0b96f3',
 				color: '#fff',
-				fontSize: '1em',
+				fontSize: '1.5em',
 				borderColor: 'none'
 			});
 			
+		});
+		
+		jQuery(function( $ ) {
+		    var keymap = {};
+
+
+// 		    // RIGHT
+		    keymap[ 39 ] = "#next";
+
+		    $( document ).on( "keyup", function(event) {
+		        var href,
+		            selector = keymap[ event.which ];
+		        // if the key pressed was in our map, check for the href
+		        if ( selector ) {
+		            href = $( selector ).attr( "href" );
+		            if ( href ) {
+		                // navigate where the link points
+		                window.location = href;
+		            }
+		        }
+		    });
 		});
 	</script>
 

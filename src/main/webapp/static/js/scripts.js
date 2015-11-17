@@ -277,3 +277,11 @@ jQuery(document).ready(function($){$('#team-slider').carousel({slider:'.slider',
 });
 			
 }( jQuery ));
+
+//Open menu with 'M'
+$(document).ready(function(){
+	$(document).keyup(function (e) {
+		console.log('tamaman');
+		$('a.togglepanel').click();
+	});
+});

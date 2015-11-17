@@ -59,7 +59,6 @@ public class RegistrationController {
         LOGGER.debug("Rendering registration form with information: {}", registration);
 
         model.addAttribute(MODEL_NAME_REGISTRATION_DTO, registration);
-
         return VIEW_NAME_REGISTRATION_PAGE;
     }
 
@@ -79,8 +78,10 @@ public class RegistrationController {
             dto.setFirstName(socialMediaProfile.getFirstName());
             dto.setLastName(socialMediaProfile.getLastName());
 
+          LOGGER.debug("===================== --- "+socialMediaProfile.getEmail());
             ConnectionKey providerKey = connection.getKey();
             dto.setSignInProvider(SocialMediaService.valueOf(providerKey.getProviderId().toUpperCase()));
+            LOGGER.debug("===================== --- "+socialMediaProfile.getEmail());
         }
 
         return dto;
