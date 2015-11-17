@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.gamegag.common.controller.HomeControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.712 sec - in com.gamegag.common.controller.HomeControllerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.696 sec - in com.gamegag.common.controller.HomeControllerTest

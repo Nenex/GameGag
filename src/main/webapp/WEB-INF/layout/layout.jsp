@@ -43,7 +43,7 @@
        		<a title="" href="#sidebar" class="togglepanel"><span class="fa fa-bars"></span></a>
         	<sec:authorize access="isAnonymous()">
                     <a href="${pageContext.request.contextPath}/user/register"><spring:message code="label.navigation.registration.link"/></a>
-                    <a href="${pageContext.request.contextPath}/auth/facebook"><button class="btn btn-facebook"><i class="icon-facebook"></i></a>
+                    <a href="${pageContext.request.contextPath}/auth/facebook"><button class="btn-facebook"><i class="icon-facebook"></i></a>
                     <a href="${pageContext.request.contextPath}/auth/twitter"><button class="btn btn-twitter"><i class="icon-twitter"></i></a>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">

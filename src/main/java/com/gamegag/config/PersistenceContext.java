@@ -19,13 +19,15 @@ import java.util.Properties;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = {
-        "com.gamegag.user.repository"
+        "com.gamegag.user.repository",
+		"com.gamegag.app.repository"
 })
 @EnableTransactionManagement
 public class PersistenceContext {
 
     private static final String[] PROPERTY_PACKAGES_TO_SCAN = {
             "com.gamegag.common.model",
+            "com.gamegag.app.model",
             "com.gamegag.user.model"
     };
 

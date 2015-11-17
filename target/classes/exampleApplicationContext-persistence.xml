@@ -13,7 +13,7 @@
 
     <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://172.16.15.74:3306/gamegag"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost/gamegag?tinyInt1isBit=false"/>
         <property name="username" value="gamegag"/>
         <property name="password" value="rym	"/>
     </bean>
