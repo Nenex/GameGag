@@ -58,10 +58,12 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
                         		"/auth/**",
                                 "/login",
                                 "**/signup/**",
-                                "**/user/register/**"
+                                "**/user/register/**","/admin/**"
                         ).permitAll()
                         //The rest of the our application is protected.
                         .antMatchers("/public/**").hasRole("USER")
+                        .antMatchers("/moderator/**").hasRole("MODERATOR")
+                        .antMatchers("/moderator/**").hasRole("ADMIN")
                         .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 	.exceptionHandling().accessDeniedPage("/403")

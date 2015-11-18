@@ -28,9 +28,12 @@
 			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 1</span></a></li>
 			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 2</span></a></li>
 			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 3</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Contact Us</span><a></li>
+			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Contact Us</span></a></li>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">
+				<li><a class="menu_item" href="/moderator"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Moderation</span></a></li>
+			</sec:authorize>
 			<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
-				<li><a class="menu_item" href="/admin"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Administration</span><a></li>
+				<li><a class="menu_item" href="/admin"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Administration</span></a></li>
 			</sec:authorize>
 		</ul>
 	</div>

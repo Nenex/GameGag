@@ -25,6 +25,7 @@ C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\user\model\U
 C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\user\validation\ValidatorUtil.java
 C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\security\service\RepositoryUserDetailsService.java
 C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\config\WebAppContext.java
+C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\common\controller\ModeratorController.java
 C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\user\service\DuplicateEmailException.java
 C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\security\util\SecurityUtil.java
 C:\Users\Nenex\Desktop\RYM\Projet_GameGag\src\main\java\com\gamegag\user\validation\PasswordsNotEqualValidator.java

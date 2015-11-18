@@ -23,13 +23,13 @@ public class HomeController {
     
     @RequestMapping(value="/public", method = RequestMethod.GET)
     public String showPublicPage() {
-        LOGGER.debug("Rendering homepage.");
+        LOGGER.debug("Rendering public page.");
         return VIEW_NAME_PUBLIC;
     }
     
     @RequestMapping(value="/403", method = RequestMethod.GET)
     public String showError403Page() {
-        LOGGER.debug("Rendering homepage.");
+        LOGGER.debug("Rendering 403 page.");
         return VIEW_NAME_ERROR_403;
     }
 }

@@ -20,7 +20,7 @@ $(document).ready(function() {
 	$(".togglepanel").pageslide({ direction: "right", speed: 150, modal: true });
 	
 	$(document).keydown(function(e) {
-    	if (e.which == 77) { // menu  M
+    	if (e.which == 77 && !$("input").is(":focus")) { // menu  M
     		$('a.togglepanel').click();
 		}
 });
