@@ -8,12 +8,14 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/vendor/jquery-2.1.4.js"></script>
     
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/aperture/imagesico/favicon.png">
 <!--[if IE]><![endif]-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/layout.css">
-<script src="${pageContext.request.contextPath}/static/js/vendor/jquery-2.1.4.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/owlcarousel.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/layout.js"></script>
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->

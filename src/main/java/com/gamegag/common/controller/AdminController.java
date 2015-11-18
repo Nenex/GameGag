@@ -2,6 +2,8 @@ package com.gamegag.common.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,6 @@ public class AdminController {
     protected static final String VIEW_NAME_ADMIN_ROLE_LIST = "admin/list";
     @Autowired private PostRepository repository_app;
     @Autowired private UserRepository repository_user;
-    public Role role;
-    
     
     @RequestMapping(value="/admin", method = RequestMethod.GET)
     public String showAdminHomePage(Model model) {
@@ -33,7 +33,6 @@ public class AdminController {
 			List<User> user = repository_user.findAll(); 
 			LOGGER.debug(repository_user.toString());
 	    	model.addAttribute("user", user);
-	    	model.addAttribute("role", Role.values());
     	}catch(Exception e){
     		LOGGER.debug(e.toString());
 		}
@@ -42,10 +41,29 @@ public class AdminController {
     }
     
     @RequestMapping(value="/admin/manage", method = RequestMethod.GET)
-    public String showAdminManagePage(@RequestParam("id") Long id, Model model) {
-    	LOGGER.debug("Rendering admin manage page.");
-    	LOGGER.debug("id "+id);
+    public String showAdminManagePage(HttpServletRequest request, Model model) {
+    	Long id 	= Long.parseLong(request.getParameter("id"),10);
+        String role = request.getParameter("role");
+        String person = request.getParameter("person");
+        
+    	model.addAttribute("role", Role.values());
+    	model.addAttribute("id", id);
+    	model.addAttribute("user_role", role);
+    	model.addAttribute("person", person);
+    	LOGGER.debug("Rendering admin manage page with id: "+id +" and role : " +role);
+    	
+    	
     	return VIEW_NAME_ADMIN_MANAGE_ROLE;
+    }
+    
+    @RequestMapping(value="/admin/manage", method = RequestMethod.POST)
+    public String showAdminresponsePage(HttpServletRequest request) {
+    	Long id 	= Long.parseLong(request.getParameter("id"),10);
+        String role = request.getParameter("role");
+        User user = repository_user.findOne(id);
+        user.setRole(role);
+        repository_user.save(user);
+    	return "redirect:/admin";
     }
     
     @RequestMapping(value="/admin/list", method = RequestMethod.GET)

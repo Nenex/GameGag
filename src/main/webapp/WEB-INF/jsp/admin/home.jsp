@@ -44,13 +44,26 @@
 				<td>${user.lastName}</td>
 				<td>${user.role}</td>
 				<td>${user.signInProvider}</td>
-				<td><a href="/admin/manage/?id=${user.id}">editer</a></td>
+				<td>
+					<%-- <a href="/admin/manage/?id=${user.id}">editer</a> --%>
+					<a href="/admin/manage/?id=${user.id}&role=${user.role}&person=${user.firstName}%20${user.lastName}" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">editer</a>
+    
+				</td>
 			</tr>
 		</c:forEach> 
         </tbody>
         </table>
-        
-        
+        <c:forEach var="role2" items="${role2}">
+		  ${role2}
+		  </c:forEach>
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Content -->
+            </div>
+        </div>
+    </div>
 <script src="${pageContext.request.contextPath}/static/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">

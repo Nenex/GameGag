@@ -68,6 +68,10 @@ public class User extends BaseEntity<Long> {
     public Role getRole() {
         return role;
     }
+    
+    public void setRole(String role) {
+        this.role = Role.valueOf(role);
+    }
 
     public SocialMediaService getSignInProvider() {
         return signInProvider;
