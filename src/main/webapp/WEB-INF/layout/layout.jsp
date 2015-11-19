@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
     
 
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/vendor/jquery-2.1.4.js"></script>
     
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/aperture/imagesico/favicon.png">
@@ -20,7 +19,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/datatables.min.css">
 <script src="${pageContext.request.contextPath}/static/js/owlcarousel.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/layout.js"></script>
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body id="pagetop">
@@ -31,19 +29,36 @@
 		<ul>
 			<sec:authorize access="isAuthenticated()">
 			<li>
-				<spring:message code="text.login.page.authenticated.user.help" />
+				<div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img  src="${pageContext.request.contextPath}/static/images/profile.jpg" alt="Volton">
+                            </div>
+			
+                            <div class="profile-content">
+                                <h3 class="profile-title"> <sec:authentication property="principal.firstName" /> </h3>
+                                <h3 class="profile-title"> <sec:authentication property="principal.lastName" /></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 			</li>
 			</sec:authorize>
-			<li class="active"><a title="" href="/public"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Accueil</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 1</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 2</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Enregistrement</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Login</span><a></li>
+			<li class="active"><a title="" href="/public"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Accueil</span></a></li>
+			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.alien.png"><span class="menu_item">Category</span></a></li>
+			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.video.png"><span class="menu_item">Video</span></a></li>
+			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.image.multiple.png"><span class="menu_item">Gif</span></a></li>
+			<sec:authorize access="isAuthenticated()">
+			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span class="menu_item">Post</span></a></li>
+			</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">
-				<li><a class="menu_item" href="/moderator"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Moderation</span></a></li>
+				<li><a class="menu_item" href="/moderator"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.chromakey.png"><span class="menu_item">Moderation</span></a></li>
 			</sec:authorize>
 			<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
-				<li><a class="menu_item" href="/admin"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Administration</span></a></li>
+				<li><a class="menu_item" href="/admin"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.cog.png"><span class="menu_item">Admin Panel</span></a></li>
 			</sec:authorize>
 		</ul>
 	</div>

@@ -46,7 +46,6 @@ html {
 
 body {
 	background: #FFF;
-	background:url('../images/bg.jpg') center center;
 	overflow-y: hidden;
 	text-rendering: optimizeLegibility;
 	vertical-align: baseline;
@@ -370,4 +369,19 @@ span[class="menu_item"] {
 
 #mainmenu img {
 	vertical-align: middle !important;
+}
+
+ 
+  .profile-image img {
+  width: 100%;
+}
+.profile-image {
+  width: 90px;
+  height: 90px;
+
+}
+
+.iconmenu{
+	width:3em;
+	height:3em;
 }
