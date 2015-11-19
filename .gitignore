@@ -1,1 +1,3 @@
 /target/
+/profiles/dev/socialConfig.properties
+/src/main/resources/application.properties

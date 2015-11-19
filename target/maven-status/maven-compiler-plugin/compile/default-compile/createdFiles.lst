@@ -8,7 +8,6 @@ com\gamegag\security\dto\ExampleUserDetails$Builder.class
 com\gamegag\app\model\Category.class
 com\gamegag\user\dto\RegistrationForm.class
 com\gamegag\user\model\User$Builder.class
-com\gamegag\config\SecurityContext.class
 com\gamegag\security\service\SimpleSocialUserDetailsService.class
 com\gamegag\app\model\Vote.class
 com\gamegag\user\validation\PasswordsNotEmpty.class
@@ -24,7 +23,6 @@ com\gamegag\user\validation\PasswordsNotEqualValidator.class
 com\gamegag\app\model\Post.class
 com\gamegag\common\controller\HomeController.class
 com\gamegag\blog\DAOApprenti.class
-com\gamegag\app\repository\PostRepository.class
 com\gamegag\blog\HomeController.class
 com\gamegag\config\ExampleApplicationConfig.class
 com\gamegag\user\model\Role.class
