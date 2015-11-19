@@ -17,6 +17,7 @@
 <!--[if IE]><![endif]-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/layout.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/datatables.min.css">
 <script src="${pageContext.request.contextPath}/static/js/owlcarousel.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/layout.js"></script>
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
