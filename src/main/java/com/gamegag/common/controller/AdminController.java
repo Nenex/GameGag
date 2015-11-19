@@ -67,7 +67,8 @@ public class AdminController {
     }
     
     @RequestMapping(value="/admin/list", method = RequestMethod.GET)
-    public String showAdminListPage() {
+    public String showAdminListPage(Model model) {
+    	model.addAttribute("posts", repository_app.findAll());
     	LOGGER.debug("Rendering admin list page.");
     	return VIEW_NAME_ADMIN_ROLE_LIST;
     }

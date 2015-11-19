@@ -29,7 +29,7 @@ public class Comment {
     @Column(name="id_answer")
     private Long IdAnswer;
 	
-    @ManyToOne  
+    @ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "id_post")  
 	private Post Post;
 	

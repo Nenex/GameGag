@@ -19,6 +19,7 @@ import java.util.Properties;
  */
 @Configuration
 @ComponentScan(basePackages = {
+		"com.gamegag.app.controller",
         "com.gamegag.common.controller",
         "com.gamegag.security.controller",
         "com.gamegag.user.controller"

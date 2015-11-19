@@ -1,6 +1,7 @@
 package com.gamegag.app.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -55,8 +56,17 @@ public class Post {
 	@Column(name = "validation",columnDefinition = "TINYINT", length = 1)
 	private Boolean Validation;
 	
-	
-	
+	@OneToMany(mappedBy="Post",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Comment> Comments;
+		  
+	public List<Comment> getComments() {
+		return Comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		Comments = comments;
+	}
+
 	public Long getId() {
 		return Id;
 	}
