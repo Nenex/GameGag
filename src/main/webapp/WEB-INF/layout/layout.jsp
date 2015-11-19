@@ -16,22 +16,29 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/aperture/imagesico/favicon.png">
 <!--[if IE]><![endif]-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/layout.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login.css">
 <script src="${pageContext.request.contextPath}/static/js/owlcarousel.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/layout.js"></script>
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
+
 <body id="pagetop">
 
 <div id="sidebar">
     <p class="closebutton"><a title="" href="javascript:$.pageslide.close()">x</a></p>
 	<div id="mainmenu" class="clearfix">
 		<ul>
+			<sec:authorize access="isAuthenticated()">
+			<li>
+				<spring:message code="text.login.page.authenticated.user.help" />
+			</li>
+			</sec:authorize>
 			<li class="active"><a title="" href="/public"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Accueil</span></a></li>
 			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 1</span></a></li>
 			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 2</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Menu Link 3</span></a></li>
-			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Contact Us</span></a></li>
-			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">
+			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Enregistrement</span></a></li>
+			<li><a class="menu_item" href=""><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Login</span><a></li>
+				<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">
 				<li><a class="menu_item" href="/moderator"><img alt="" src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span class="menu_item">Moderation</span></a></li>
 			</sec:authorize>
 			<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
@@ -47,12 +54,11 @@
         <p>
        		<a title="" href="#sidebar" class="togglepanel"><span class="fa fa-bars"></span></a>
         	<sec:authorize access="isAnonymous()">
-                    <a href="${pageContext.request.contextPath}/user/register"><spring:message code="label.navigation.registration.link"/></a>
-                    <a href="${pageContext.request.contextPath}/auth/facebook"><button class="btn-facebook"><i class="icon-facebook"></i></a>
-                    <a href="${pageContext.request.contextPath}/auth/twitter"><button class="btn btn-twitter"><i class="icon-twitter"></i></a>
+                    <a href="${pageContext.request.contextPath}/user/register" class="logout"><span class="glyphicon glyphicon-log-out"></span>Signup</a> 
+                    <a href="${pageContext.request.contextPath}/login" class="logout"><span class="glyphicon glyphicon-log-out"></span>Login</a>  
                 </sec:authorize>
-                <sec:authorize access="isAuthenticated()">
-	               <a href="/logout" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                <sec:authorize access="isAuthenticated()">       
+	               <a href="/logout" class="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
                 </sec:authorize>
         </p>
 	</div>

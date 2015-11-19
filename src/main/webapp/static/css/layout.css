@@ -231,6 +231,19 @@ img.imgleft {
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+	
+}
+
+a.logout {
+	float: right;
+	color: #FFF;
+	background: #2846DC;
+	padding: 10px 12px;
+	font-size: 20px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	margin-right : 0.3em;
 }
 
 #headercont a:hover.togglepanel {
