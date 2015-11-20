@@ -41,7 +41,8 @@ public class Comment {
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime CreationTime;
 	
-	@Column(name = "COMMENT",columnDefinition="char")
+	@Column(name = "COMMENT")
+	@Type(type="text")
 	private String Comment;
 	
 	@Column(name = "disabled",nullable = true, columnDefinition = "TINYINT", length = 1)

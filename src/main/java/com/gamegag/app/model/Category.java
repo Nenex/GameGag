@@ -1,11 +1,22 @@
 package com.gamegag.app.model;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+
+import com.gamegag.user.model.User;
 
 @Entity
 @Table(name="categories")
@@ -16,14 +27,20 @@ public class Category {
     @Column(name="id_categorie")
     private Long Id;
 
-	@Column(name = "label", nullable = false, unique = true, columnDefinition="char")
+	@Column(name = "label", nullable = false, unique = true)
+	@Type(type="text")
     private String Label;
     
-    @Column(name = "filename",nullable = false, unique = true, columnDefinition="char")
+    @Column(name = "filename",nullable = false, unique = true)
+    @Type(type="text")
     private String FileName;
 
     @Column(name = "disabled",nullable = true, columnDefinition = "TINYINT", length = 1)
     private Boolean disabled;
+    
+    @OneToMany(fetch = FetchType.EAGER)
+	private Set<Post> Posts;
+
     
     public Long getId() {
 		return Id;

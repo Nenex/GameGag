@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,11 +33,11 @@ public class Post {
 	@Column(name = "id_post", nullable = false)
 	private Long Id;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_categorie")
 	private Category Category;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_utilisateur")
 	private User User;
 
@@ -44,13 +45,16 @@ public class Post {
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime CreationTime;
 	
-	@Column(name = "title",columnDefinition="char")
+	@Column(name = "title")
+	@Type(type="text")
 	private String Title;
 
-	@Column(name = "description",columnDefinition="char")
+	@Column(name = "description")
+	@Type(type="text")
 	private String Description;
 	
-	@Column(name = "filename",columnDefinition="char")
+	@Column(name = "filename")
+	@Type(type="text")
 	private String Filename;
 
 	@Column(name = "validation",columnDefinition = "TINYINT", length = 1)

@@ -1,7 +1,13 @@
 package com.gamegag.user.model;
 
+import com.gamegag.app.model.Post;
 import com.gamegag.common.model.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.FetchMode;
+import org.hibernate.annotations.Fetch;
+
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -36,6 +42,9 @@ public class User extends BaseEntity<Long> {
     @Column(name = "sign_in_provider", length = 20)
     private SocialMediaService signInProvider;
 
+    @OneToMany(fetch = FetchType.EAGER)
+	private Set<Post> Posts;
+    
     public User() {
 
     }
