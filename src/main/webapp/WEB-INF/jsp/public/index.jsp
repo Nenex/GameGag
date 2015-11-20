@@ -7,19 +7,28 @@
 <head>
 <title></title>
 <body>
-test
+
+    <div id="sliderFrame">
+        <div id="slider">
+            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-1.jpg" alt="Welcome to GameGag" />
+            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-2.jpg" alt="Blabla" />
+            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-3.jpg" alt="Blabla" />
+            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-4.jpg" alt="Blabla" />
+            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-5.jpg" alt="Blabla" />
+        </div>
+</div>
 
 
-
+<div class="container">
 <sec:authorize access="isAuthenticated()">
 
 	<div class="page-header">
 		<h1>
 			<spring:message code="label.homepage.title" />
 			<sec:authentication property="principal.firstName" />
-			<sec:authentication property="principal.lastName" />
 		</h1>
 	</div>
 </sec:authorize>
+</div>
 </body>
 </html>

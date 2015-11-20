@@ -9,19 +9,45 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
     
 
-    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
+  
     <script src="${pageContext.request.contextPath}/static/js/vendor/jquery-2.1.4.js"></script>
-    
+    <script src="${pageContext.request.contextPath}/static/js/vendor/bootstrap.min.js"></script>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/aperture/imagesico/favicon.png">
 <!--[if IE]><![endif]-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/layout.css">
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/datatables.min.css">
 <script src="${pageContext.request.contextPath}/static/js/owlcarousel.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/layout.js"></script>
+<link href="${pageContext.request.contextPath}/static/css/js-image-slider.css" rel="stylesheet" type="text/css" />
+
+
+
+<script src="${pageContext.request.contextPath}/static/js/js-image-slider.js" type="text/javascript"></script>
 </head>
 
+
+
+
+
 <body id="pagetop">
+
+<div class="container clearfix">
+	<div id="headercont" class="bodycontainer clearfix">
+		<h1><a title="" href="#">GameGag <span>Blablablabla</span></a></h1>
+        <p>
+       		<a title="" href="#sidebar" class="togglepanel"><span class="fa fa-bars"></span></a>
+        	<sec:authorize access="isAnonymous()">
+                    <a href="${pageContext.request.contextPath}/user/register" class="logout"><span class="glyphicon glyphicon-log-out"></span>Signup</a> 
+                    <a href="${pageContext.request.contextPath}/login" class="logout"><span class="glyphicon glyphicon-log-out"></span>Login</a>  
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">       
+	               <a href="/logout" class="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                </sec:authorize>
+        </p>
+	</div>
+</div>
 
 <div id="sidebar">
     <p class="closebutton"><a title="" href="javascript:$.pageslide.close()">x</a></p>
@@ -29,21 +55,21 @@
 		<ul>
 			<sec:authorize access="isAuthenticated()">
 			<li>
-				<div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="top-section">
+				
+
+
+         
                             <div class="profile-image">
-                                <img  src="${pageContext.request.contextPath}/static/images/profile.jpg" alt="Volton">
+                                <img  class="circle" src="${pageContext.request.contextPath}/static/images/profile.jpg" alt="Volton">
                             </div>
 			
                             <div class="profile-content">
-                                <h3 class="profile-title"> <sec:authentication property="principal.firstName" /> </h3>
-                                <h3 class="profile-title"> <sec:authentication property="principal.lastName" /></h3>
+                                <h3 class="profile-title textcenterlayout" > <sec:authentication property="principal.firstName" /> </h3>
+                                <h3 class="profile-title textcenterlayout"> <sec:authentication property="principal.lastName" /></h3><hr>
                             </div>
-                        </div>
-                    </div>
-                </div>
+              
+      
+  
 
 			</li>
 			</sec:authorize>
@@ -63,31 +89,15 @@
 		</ul>
 	</div>
 </div>
-
-<div class="container clearfix">
-	<div id="headercont" class="bodycontainer clearfix">
-		<h1><a title="" href="#">GameGag <span>Blablablabla</span></a></h1>
-        <p>
-       		<a title="" href="#sidebar" class="togglepanel"><span class="fa fa-bars"></span></a>
-        	<sec:authorize access="isAnonymous()">
-                    <a href="${pageContext.request.contextPath}/user/register" class="logout"><span class="glyphicon glyphicon-log-out"></span>Signup</a> 
-                    <a href="${pageContext.request.contextPath}/login" class="logout"><span class="glyphicon glyphicon-log-out"></span>Login</a>  
-                </sec:authorize>
-                <sec:authorize access="isAuthenticated()">       
-	               <a href="/logout" class="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
-                </sec:authorize>
-        </p>
-	</div>
-</div>
-
-
-
+<div class="container">
 <div class="content">
         <div id="view-holder">
             <sitemesh:write property="body"/>
         </div>
     </div>
-
+</div>
 <script src="${pageContext.request.contextPath}/static/js/pageslide.min.js"></script>
+
+
 </body>
 </html>

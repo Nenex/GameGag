@@ -11,7 +11,6 @@
 	kikoulol real admin rights
 
 	<sec:authentication property="principal.role" />
-	x
 	
 	<c:forEach items="${posts}" var="post">
 	   	${post.title}

@@ -372,16 +372,27 @@ span[class="menu_item"] {
 }
 
  
-  .profile-image img {
-  width: 100%;
-}
-.profile-image {
-  width: 90px;
-  height: 90px;
-
-}
 
 .iconmenu{
-	width:3em;
-	height:3em;
+	width:2em;
+	height:2em;
+}
+
+.textcenterlayout{
+	text-align:center;
+}
+
+.circle {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 0.5em auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 9em;
+  -moz-border-radius: 9em;
+  border-radius: 9em;
+  border: 5px solid #eee;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
 }
