@@ -9,10 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
 <table id="user-list-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Date de création</th>
                 <th>Email</th>
                 <th>Nom</th>
@@ -22,22 +22,10 @@
                 <th></th>
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Date de création</th>
-                <th>Email</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Role</th>
-                <th>Provider</th>
-                <th></th>
-            </tr>
-        </tfoot>
+
         <tbody>
         <c:forEach var="user" items="${user}">
 			<tr>
-				<td>${user.id}</td>
 				<td>${user.creationTime}</td>
 				<td>${user.email}</td>
 				<td>${user.firstName}</td>
@@ -47,12 +35,12 @@
 				<td>
 					<%-- <a href="/admin/manage/?id=${user.id}">editer</a> --%>
 					<a href="/admin/manage/?id=${user.id}&role=${user.role}&person=${user.firstName}%20${user.lastName}" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">editer</a>
-    
 				</td>
 			</tr>
 		</c:forEach> 
         </tbody>
         </table>
+        </div>
         <c:forEach var="role2" items="${role2}">
 		  ${role2}
 		  </c:forEach>
@@ -66,10 +54,15 @@
     </div>
 <script src="${pageContext.request.contextPath}/static/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/dataTables.bootstrap.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#user-list-table').DataTable();
+    $('#user-list-table').DataTable({
+    });
+    
 } );
 </script>
+
+
 </body>
 </html>
