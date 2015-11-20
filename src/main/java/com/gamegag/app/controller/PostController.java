@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
-import com.gamegag.app.editor.CategoryEditor;
 import com.gamegag.app.model.Category;
 import com.gamegag.app.model.Post;
 import com.gamegag.app.repository.CategoryRepository;
@@ -39,10 +38,6 @@ public class PostController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-	    binder.registerCustomEditor(Category.class, new CategoryEditor());
-	}
 	
     @RequestMapping(value = "/public/post/add", method = RequestMethod.GET)
     public String viewLogin(Map<String, Object> model) {

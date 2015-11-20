@@ -22,8 +22,10 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.gamegag.user.model.User;
 
+@JsonSerialize
 @Entity
 @Table(name="user_posts")
 public class Post {
