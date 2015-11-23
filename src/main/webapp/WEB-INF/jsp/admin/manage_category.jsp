@@ -18,15 +18,20 @@
 		<c:set var="id" value="${category.id}" />
 		<div class="modal-body">
 			<input type="hidden" name="${_csrf.parameterName}"value="${category.id}" /> 
-			<p>
+			<div class="form-group">
+				<label>Label</label>
 				<input type="text" class="form-control" name="label" value="${category.label}" /> 
-			</p>
-			<p>
+			</div>
+			<div class="form-group">
+			<label>Image Url</label>
 				<input type="text" class="form-control" name="imageUrl" value="${category.fileName}" />
-			</p> 
-			<p>
-				<input type="checkbox" class="form-control" name="disabled" <c:if test="${category.disabled == 'true'}">checked</c:if>/> Activate / Disabled
-			</p> 
+			</div> 
+			<div class="form-group">
+			 <div class="checkbox">
+			 <p> Activate / Disabled</p>
+ 				<label><input type="checkbox"  name="disabled" <c:if test="${category.disabled == 'true'}">checked</c:if>/></label>
+			</div> 
+			</div>
 		</div>
 
 		<div class="modal-footer">
