@@ -62,7 +62,7 @@
 							le dernier commentaire */
 							//$('.image:last').after(data.toString());
 							$.each(posts, function(index, post) {
-				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="'+ post.filename + '"><img class="img-responsive" src="'+ post.filename + '"></a></div>', {
+				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="/public/post/details/'+ post.id + '"><img class="img-responsive" src="'+ post.filename + '"></a></div>', {
 				                }));
 				            });
 							/* On actualise la valeur offset
@@ -78,22 +78,13 @@
 	</script>
 	<div class="cont_com">
 		 <c:forEach var="post"  items="${posts}" begin="1" end="5"  >
-			 	<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
-				<a class="thumbnail" href="${post.filename}">
+		 	<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
+				<a class="thumbnail" href="/public/post/details/${post.id}">
 					<img class="img-responsive" src="${post.filename}">
 				</a>
 			</div>
 		</c:forEach>
 	</div>
 	<div class="loadmore">Chargement en cours...</div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".cont_com").magnificPopup({
-				delegate: "a", // selection de la balise des liens des images
-				type: "image"
-				// autres options
-			});
-		});
-	</script>	
 </body>
 </html>

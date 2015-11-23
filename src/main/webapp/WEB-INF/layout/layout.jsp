@@ -24,7 +24,7 @@
 <body id="pagetop">
 <div class="container clearfix">
 	<div id="headercont" class="bodycontainer clearfix">
-		<h1><a title="" href="#">GameGag <span>Blablablabla</span></a></h1>
+		<h1><a title="" href="#">GameGag</a></h1>
         <p>
        		<a title="" href="#sidebar" class="togglepanel"><span class="fa fa-bars"></span></a>
         	<sec:authorize access="isAnonymous()">

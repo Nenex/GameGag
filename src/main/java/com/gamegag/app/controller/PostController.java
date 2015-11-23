@@ -1,6 +1,7 @@
 package com.gamegag.app.controller;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +11,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gamegag.app.model.Post;
+import com.gamegag.app.model.Vote;
 import com.gamegag.app.repository.CategoryRepository;
 import com.gamegag.app.repository.PostRepository;
+import com.gamegag.app.repository.VoteRepository;
 import com.gamegag.common.controller.HomeController;
 import com.gamegag.user.repository.UserRepository;
 
@@ -26,7 +31,7 @@ public class PostController {
 	@Autowired private CategoryRepository repo_category;
 	@Autowired private PostRepository repo_post;
 	@Autowired private UserRepository repo_user;
-	
+	@Autowired private VoteRepository repo_vote;
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	
 	
@@ -56,6 +61,18 @@ public class PostController {
 	    	LOGGER.debug(e.getMessage());
 	    	return "/public";
 	    }    	
+    }
+    
+    @RequestMapping(value = "/public/post/details/{id}", method = RequestMethod.GET)
+    public String viewDetailsPost( Model model, @PathVariable Long id) {
+    	LOGGER.debug("Rendering Post details page.");    	
+        Post post = repo_post.findOne(id);
+        List<Vote> votes = repo_vote.findAll();
+        
+        LOGGER.debug("NB VOTE : " + votes.size());
+        model.addAttribute("post", post);
+        model.addAttribute("votes", votes);
+        return "/public/post/details";
     }
 }
 
