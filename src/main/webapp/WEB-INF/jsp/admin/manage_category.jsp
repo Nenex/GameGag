@@ -9,24 +9,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:set var="id" value="${category.id}" />
+	
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">Edit user profil</h4>
+		<h4 class="modal-title">Edit category</h4>
 	</div>
-	<div class="modal-body">
-		<p>
-		<form action="${pageContext.request.contextPath}/admin/manage_category" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}" /> 
-			
-		</form>
+	<form action="${pageContext.request.contextPath}/admin/manage_category" method="post">
+		<c:set var="id" value="${category.id}" />
+		<div class="modal-body">
+			<input type="hidden" name="${_csrf.parameterName}"value="${category.id}" /> 
+			<p>
+				<input type="text" class="form-control" name="label" value="${category.label}" /> 
+			</p>
+			<p>
+				<input type="text" class="form-control" name="imageUrl" value="${category.fileName}" />
+			</p> 
+			<p>
+				<input type="checkbox" class="form-control" name="disabled" <c:if test="${category.disabled == 'true'}">checked</c:if>/> Activate / Disabled
+			</p> 
 		</div>
 
-	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<input type="submit" value="Edit" class="btn btn-info"/>
-	</div>
-	</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<input type="submit" value="Edit" class="btn btn-info"/>
+		</div>
+	</form>
 	<%-- <sec:authentication property="principal.role" /> --%>
 </body>
 </html>
