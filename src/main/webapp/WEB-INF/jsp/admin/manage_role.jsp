@@ -17,14 +17,12 @@
 		<button type="button" class="close" data-dismiss="modal">&times;</button>
 		<h4 class="modal-title">Edit user profil</h4>
 	</div>
-	<div class="modal-body">
-		<p>${person}hascurrently${user_role} right.
-		<p>
-		<form action="${pageContext.request.contextPath}/admin/manage_role"
-			method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input type="hidden" name="id"
-				value="${id}" /> <select name="role" class="form-control">
+	<form action="${pageContext.request.contextPath}/admin/manage_role" method="post">
+		<div class="modal-body">
+			<p>${person}hascurrently${user_role} right.
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<input type="hidden" name="id" value="${id}" /> 
+			<select name="role" class="form-control">
 				<c:forEach var="role" items="${role}">
 					<c:choose>
 						<c:when test="${user_role==role}">
@@ -36,14 +34,12 @@
 					</c:choose>
 				</c:forEach>
 			</select>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<input type="submit" value="Edit" class="btn btn-info" />
-			</div>
-		</form>
-	</div>
-
-
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<input type="submit" value="Edit" class="btn btn-info" />
+		</div>		
+	</form>
 	<%-- <sec:authentication property="principal.role" /> --%>
 </body>
 </html>
