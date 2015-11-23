@@ -62,7 +62,7 @@
 							le dernier commentaire */
 							//$('.image:last').after(data.toString());
 							$.each(posts, function(index, post) {
-				                $('.cont_com').append($('<div class="image" style="height:100px;" id="' + post.id + '"><a class=".image-popup-vertical-fit" href="'+ post.filename + '"><img height="75" width="75"  src="'+ post.filename + '"></a></div>', {
+				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="'+ post.filename + '"><img class="img-responsive" src="'+ post.filename + '"></a></div>', {
 				                }));
 				            });
 							/* On actualise la valeur offset
@@ -77,10 +77,10 @@
 		});
 	</script>
 	<div class="cont_com">
-		 <c:forEach var="post"  items="${posts}" begin="0" end="10" >
-		 	<div class="image" style="height:100px;" id="${post.id}">
-				<a class=".image-popup-vertical-fit" href="${post.filename}">
-					<img src="${post.filename}" height="75" width="75" >
+		 <c:forEach var="post"  items="${posts}" begin="1" end="10"  >
+			 	<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
+				<a class="thumbnail" href="${post.filename}">
+					<img class="img-responsive" src="${post.filename}">
 				</a>
 			</div>
 		</c:forEach>
