@@ -67,8 +67,7 @@ public class PostController {
     public String viewDetailsPost( Model model, @PathVariable Long id) {
     	LOGGER.debug("Rendering Post details page.");    	
         Post post = repo_post.findOne(id);
-        List<Vote> votes = repo_vote.findAll();
-        
+        List<Vote> votes = repo_vote.findAllByIdPost(post);
         LOGGER.debug("NB VOTE : " + votes.size());
         model.addAttribute("post", post);
         model.addAttribute("votes", votes);
