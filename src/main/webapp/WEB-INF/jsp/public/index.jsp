@@ -43,8 +43,7 @@
 				lance la fonction. */
 				if((offset.top-$(window).height() <= $(window).scrollTop()) 
 				&& load==false && ($('.thumb').size()>=5) && 
-				($('.thumb').size()!=$('.nb_com').text())){
-					
+				($('.thumb').size()!=$('.nb_com').text())){	
 					// la valeur passe à vrai, on va charger
 					load = true;
 					//On récupère l'id du dernier commentaire affiché
