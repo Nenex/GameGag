@@ -40,6 +40,7 @@ public class HomeController {
     	Pageable topTen = new PageRequest(0, 10);
     	List<Post> posts = _PostRepo.findWithPageable(topTen);
     	model.addAttribute("posts", posts);
+    	LOGGER.debug(posts.toString());
     	model.addAttribute("categories", _CategoryRepo.findAll());
         LOGGER.debug("Rendering public page.");
         return VIEW_NAME_PUBLIC;
@@ -55,7 +56,6 @@ public class HomeController {
     @ResponseBody
     public List<Post> showLastImage( @PathVariable Long id) {
     	Pageable topFive = new PageRequest(0, 5);
-    	//List<Post> posts = _PostRepository.findAll();
     	List<Post> posts = _PostRepo.findByIdInferiorAt(id, topFive);
     	return posts;
     }

@@ -35,19 +35,20 @@
 		 	/* la fonction offset permet de récupérer la valeur X et Y d'un élément
 			dans une page. Ici on récupère la position du dernier div qui 
 			a pour classe : ".commentaire" */
-			var offset = $('.image:last').offset(); 
+			var offset = $('.thumb:last').offset(); 
 			$(window).scroll(function(){ // On surveille l'évènement scroll
 				/* Si l'élément offset est en bas de scroll, si aucun chargement 
 				n'est en cours, si le nombre de commentaire affiché est supérieur 
 				à 5 et si tout les commentaires ne sont pas affichés, alors on 
 				lance la fonction. */
 				if((offset.top-$(window).height() <= $(window).scrollTop()) 
-				&& load==false && ($('.image').size()>=5) && 
-				($('.image').size()!=$('.nb_com').text())){
+				&& load==false && ($('.thumb').size()>=5) && 
+				($('.thumb').size()!=$('.nb_com').text())){
+					
 					// la valeur passe à vrai, on va charger
 					load = true;
 					//On récupère l'id du dernier commentaire affiché
-					var last_id = $('.image:last').attr('id');
+					var last_id = $('.thumb:last').attr('id');
 					//On affiche un loader
 					$('.loadmore').show();
 					//On lance la fonction ajax
@@ -67,7 +68,7 @@
 				            });
 							/* On actualise la valeur offset
 							du dernier commentaire */
-							offset = $('.image:last').offset();
+							offset = $('.thumb:last').offset();
 							//On remet la valeur à faux car c'est fini
 							load = false;
 						}
@@ -77,7 +78,7 @@
 		});
 	</script>
 	<div class="cont_com">
-		 <c:forEach var="post"  items="${posts}" begin="1" end="10"  >
+		 <c:forEach var="post"  items="${posts}" begin="1" end="5"  >
 			 	<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
 				<a class="thumbnail" href="${post.filename}">
 					<img class="img-responsive" src="${post.filename}">
