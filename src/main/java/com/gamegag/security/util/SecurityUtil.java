@@ -21,7 +21,7 @@ public class SecurityUtil {
     
     public static void logInUser(User user) {
         LOGGER.info("Logging in user: {}", user);
-        String urlImage = repository_connection.findByUserId(user.getEmail()).getImageUrl();
+        //String urlImage = repository_connection.findByUserId(user.getEmail()).getImageUrl();
                
         ExampleUserDetails userDetails = ExampleUserDetails.getBuilder()
                 .firstName(user.getFirstName())
@@ -31,7 +31,7 @@ public class SecurityUtil {
                 .role(user.getRole())
                 .socialSignInProvider(user.getSignInProvider())
                 .username(user.getEmail())
-                .urlImage(urlImage)
+                .urlImage("")
                 .build();
         LOGGER.debug("Logging in principal: {}", userDetails);
 
