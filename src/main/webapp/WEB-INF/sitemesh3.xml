@@ -15,5 +15,6 @@
 	    <path>/WEB-INF/jsp/moderator/*</path>
 	    <decorator>/WEB-INF/layout/layout.jsp</decorator>
 	</mapping>
-	<mapping path="/WEB-INF/jsp/admin/manage.jsp" exclue="true"/>
+	<mapping path="/WEB-INF/jsp/admin/manage_role.jsp" exclue="true"/>
+	<mapping path="/WEB-INF/jsp/admin/manage_category.jsp" exclue="true"/>
 </sitemesh>

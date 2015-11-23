@@ -1,31 +1,22 @@
 package com.gamegag.app.controller;
 
 import java.security.Principal;
-import java.sql.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
-import com.gamegag.app.model.Category;
 import com.gamegag.app.model.Post;
 import com.gamegag.app.repository.CategoryRepository;
 import com.gamegag.app.repository.PostRepository;
 import com.gamegag.common.controller.HomeController;
-import com.gamegag.user.model.User;
 import com.gamegag.user.repository.UserRepository;
 
 

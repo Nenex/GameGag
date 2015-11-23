@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +19,7 @@
 	<div class="modal-body">
 		<p>${person}hascurrently ${user_role} right.
 		<p>
-		<form action="${pageContext.request.contextPath}/admin/manage" method="post">
+		<form action="${pageContext.request.contextPath}/admin/manage_role" method="post">
 			<input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}" /> <input type="hidden" name="id" value="${id}" /> 
 			<select name="role" class="form-control">
 				<c:forEach var="role" items="${role}">

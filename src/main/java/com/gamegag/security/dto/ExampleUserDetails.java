@@ -1,8 +1,12 @@
 package com.gamegag.security.dto;
 
+import com.gamegag.app.repository.CategoryRepository;
 import com.gamegag.user.model.Role;
 import com.gamegag.user.model.SocialMediaService;
+import com.gamegag.user.repository.UserConnectionRepository;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.social.security.SocialUser;
@@ -15,7 +19,9 @@ import java.util.Set;
  * @author Petri Kainulainen
  */
 public class ExampleUserDetails extends SocialUser {
+	
 
+	
     private Long id;
 
     private String firstName;
@@ -26,6 +32,9 @@ public class ExampleUserDetails extends SocialUser {
 
     private SocialMediaService socialSignInProvider;
 
+    private String urlImage;
+    
+    
     public ExampleUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
     }
@@ -45,7 +54,11 @@ public class ExampleUserDetails extends SocialUser {
     public String getLastName() {
         return lastName;
     }
-
+    
+    public String getUrlImage() {
+        return urlImage;
+    }
+    
     public Role getRole() {
         return role;
     }
@@ -61,6 +74,7 @@ public class ExampleUserDetails extends SocialUser {
                 .append("username", getUsername())
                 .append("firstName", firstName)
                 .append("lastName", lastName)
+                .append("urlImage", urlImage)
                 .append("role", role)
                 .append("socialSignInProvider", socialSignInProvider)
                 .toString();
@@ -68,6 +82,8 @@ public class ExampleUserDetails extends SocialUser {
 
     public static class Builder {
 
+    	@Autowired private UserConnectionRepository userConnectionRepo;
+    	
         private Long id;
 
         private String username;
@@ -76,6 +92,8 @@ public class ExampleUserDetails extends SocialUser {
 
         private String lastName;
 
+        private String urlImage;
+        
         private String password;
 
         private Role role;
@@ -125,7 +143,12 @@ public class ExampleUserDetails extends SocialUser {
             this.socialSignInProvider = socialSignInProvider;
             return this;
         }
-
+        
+        public Builder urlImage(String urlImage) {
+            this.urlImage = urlImage;
+            return this;
+        }
+        
         public Builder username(String username) {
             this.username = username;
             return this;
@@ -133,10 +156,11 @@ public class ExampleUserDetails extends SocialUser {
 
         public ExampleUserDetails build() {
             ExampleUserDetails user = new ExampleUserDetails(username, password, authorities);
-
+            
             user.id = id;
             user.firstName = firstName;
             user.lastName = lastName;
+            user.urlImage = urlImage;
             user.role = role;
             user.socialSignInProvider = socialSignInProvider;
 

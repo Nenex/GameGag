@@ -27,7 +27,7 @@ import com.gamegag.user.model.User;
 
 @JsonSerialize
 @Entity
-@Table(name="user_posts")
+@Table(name="posts")
 public class Post {
     
 	@Id

@@ -46,7 +46,10 @@ public class UserConnection implements Serializable {
 	
 	@Column(name = "expireTime", length = 255)
     private Long expireTime;
+	
+	 public UserConnection() {
 
+	    }
     public UserConnection(String userId, String providerId, String providerUserId, int rank, String displayName, String profileUrl, String imageUrl, String accessToken, String secret, String refreshToken, Long expireTime) {
         this.userId = userId;
         this.providerId = providerId;
