@@ -11,7 +11,7 @@
 	href="${pageContext.request.contextPath}/static/css/social-buttons-3.css" />
 </head>
 <body>
-	<div class="container">
+	<div class="container">=
 		<sec:authorize access="isAnonymous()">
 
 			<c:if test="${param.error eq 'bad_credentials'}">

@@ -38,9 +38,9 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 
         User user = repository.findByEmail(username);
         LOGGER.debug("Found user: {}", user);        
-        String urlImage = repository_connection.findByUserId(username).getImageUrl();
+        //String urlImage = repository_connection.findByUserId(username).getImageUrl();
         LOGGER.info("USERNAME : " + username);
-        LOGGER.info("IMAGE : " + urlImage);
+      // LOGGER.info("IMAGE : " + urlImage);
         
         
         if (user == null) {
@@ -53,7 +53,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
                 .lastName(user.getLastName())
                 .password(user.getPassword())
                 .role(user.getRole())
-                .urlImage(urlImage)
+                .urlImage("")
                 .socialSignInProvider(user.getSignInProvider())
                 .username(user.getEmail())
                 .build();
