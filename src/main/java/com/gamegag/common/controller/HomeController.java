@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gamegag.app.model.Post;
+import com.gamegag.app.repository.CategoryRepository;
 import com.gamegag.app.repository.PostRepository;
 
 @Controller
@@ -26,8 +27,8 @@ public class HomeController {
     protected static final String VIEW_NAME_PUBLIC = "public/index";
     protected static final String VIEW_NAME_ERROR_403 = "public/403";
 
-    @Autowired private PostRepository _PostRepository;
-    
+    @Autowired private PostRepository _PostRepo;
+    @Autowired private CategoryRepository _CategoryRepo;
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String showHomePage() {
         LOGGER.debug("Rendering homepage.");
@@ -36,7 +37,10 @@ public class HomeController {
     
     @RequestMapping(value="/public", method = RequestMethod.GET)
     public String showPublicPage(Model model) {
-    	model.addAttribute("posts", _PostRepository.findAll());
+    	Pageable topTen = new PageRequest(0, 10);
+    	List<Post> posts = _PostRepo.findWithPageable(topTen);
+    	model.addAttribute("posts", posts);
+    	model.addAttribute("categories", _CategoryRepo.findAll());
         LOGGER.debug("Rendering public page.");
         return VIEW_NAME_PUBLIC;
     }
@@ -52,7 +56,7 @@ public class HomeController {
     public List<Post> showLastImage( @PathVariable Long id) {
     	Pageable topFive = new PageRequest(0, 5);
     	//List<Post> posts = _PostRepository.findAll();
-    	List<Post> posts = _PostRepository.findByIdInferiorAt(id, topFive);
+    	List<Post> posts = _PostRepo.findByIdInferiorAt(id, topFive);
     	return posts;
     }
 }

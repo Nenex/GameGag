@@ -18,4 +18,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 	@Query("SELECT p FROM Post p WHERE p.Id > :id")
     public List<Post> findByIdInferiorAt(@Param("id") Long id,Pageable pageable);
 	
+	@Query(value="SELECT p FROM Post p")
+	public List<Post> findWithPageable(Pageable pageable);
+	
 }
