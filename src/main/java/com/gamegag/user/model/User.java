@@ -18,7 +18,43 @@ import javax.persistence.*;
 @Table(name = "user_accounts")
 public class User extends BaseEntity<Long> {
 
-    @Id
+    public Set<Post> getPosts() {
+		return Posts;
+	}
+
+	public void setPosts(Set<Post> posts) {
+		Posts = posts;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public void setSignInProvider(SocialMediaService signInProvider) {
+		this.signInProvider = signInProvider;
+	}
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

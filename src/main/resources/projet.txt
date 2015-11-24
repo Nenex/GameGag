@@ -1,0 +1,14 @@
+presentation generale:	
+	- vous
+	- client
+	-besoins
+	-solutions
+	-analyse fo
+	-calculer les charges
+	-maquettes
+
+parties techniques: 
+	- modele (BD) (pour rapport legerement pour pres)
+	- controler (pour rapport)
+	- vue (arbo fichier)
+- conclusion

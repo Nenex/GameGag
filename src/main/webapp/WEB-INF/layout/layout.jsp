@@ -24,7 +24,7 @@
 <body id="pagetop">
 <div class="container clearfix">
 	<div id="headercont" class="bodycontainer clearfix">
-		<h1><a title="" href="#">GameGag <span>Blablablabla</span></a></h1>
+		<h1><a title="" href="#">GameGag </a></h1>
         <p>
        		<a title="" href="#sidebar" class="togglepanel"><span class="fa fa-bars"></span></a>
         	<sec:authorize access="isAnonymous()">
@@ -59,6 +59,9 @@
 			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.image.multiple.png"><span class="menu_item">Gif</span></a></li>
 			<sec:authorize access="isAuthenticated()">
 			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span class="menu_item">Post</span></a></li>
+			<sec:authorize access="isAuthenticated()"> 
+			<li><a class="menu_item" href="/public/profil"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span class="menu_item">User profil</span></a></li>
+			</sec:authorize>
 			</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">
 				<li><a class="menu_item" href="/moderator"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.chromakey.png"><span class="menu_item">Moderation</span></a></li>

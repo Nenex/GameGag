@@ -6,29 +6,46 @@
 <html>
 <head>
 <title></title>
+
 <body>
 
-    <div id="sliderFrame">
-        <div id="slider">
-            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-1.jpg" alt="Welcome to GameGag" />
-            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-2.jpg" alt="Blabla" />
-            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-3.jpg" alt="Blabla" />
-            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-4.jpg" alt="Blabla" />
-            <img src="${pageContext.request.contextPath}/static/images/slide/image-slider-5.jpg" alt="Blabla" />
-        </div>
+	<div id="sliderFrame">
+		<div id="slider">
+			<img
+				src="${pageContext.request.contextPath}/static/images/slide/image-slider-1.jpg"
+				alt="Welcome to GameGag" /> <img
+				src="${pageContext.request.contextPath}/static/images/slide/image-slider-2.jpg"
+				alt="Blabla" /> <img
+				src="${pageContext.request.contextPath}/static/images/slide/image-slider-3.jpg"
+				alt="Blabla" /> <img
+				src="${pageContext.request.contextPath}/static/images/slide/image-slider-4.jpg"
+				alt="Blabla" /> <img
+				src="${pageContext.request.contextPath}/static/images/slide/image-slider-5.jpg"
+				alt="Blabla" />
+		</div>
 	</div>
 
-	<div class="container">
-		<sec:authorize access="isAuthenticated()">
-		
-			<div class="page-header">
-				<h1>
-					<spring:message code="label.homepage.title" />
-					<sec:authentication property="principal.firstName" />
-				</h1>
-			</div>
-		</sec:authorize>
+	<div class="container head-posts">
+		<div class="page-header">
+			<h1>
+				<spring:message code="label.homepage.title" />
+			</h1>
+		</div>
 	</div>
+	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+	<div class="container">
+		<div class="cont_com">
+			<c:forEach var="post" items="${posts}" begin="1" end="5">
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
+					<a class="thumbnail" href="/public/post/details/${post.id}"> <img
+						class="img-responsive" src="${post.filename}">
+					</a>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+	
+	
 	<script type="text/javascript">
 		$(document).ready(function(){ // Quand le document est complètement chargé
 			var load = false; // aucun chargement de commentaire n'est en cours
@@ -62,7 +79,7 @@
 							le dernier commentaire */
 							//$('.image:last').after(data.toString());
 							$.each(posts, function(index, post) {
-				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="'+ post.filename + '"><img class="img-responsive" src="'+ post.filename + '"></a></div>', {
+				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="/public/post/details/'+ post.id + '"><img class="img-responsive" src="'+ post.filename + '"></a></div>', {
 				                }));
 				            });
 							/* On actualise la valeur offset
@@ -76,24 +93,30 @@
 			});
 		});
 	</script>
-	<div class="cont_com">
-		 <c:forEach var="post"  items="${posts}" begin="1" end="5"  >
-			 	<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
-				<a class="thumbnail" href="${post.filename}">
-					<img class="img-responsive" src="${post.filename}">
-				</a>
-			</div>
-		</c:forEach>
-	</div>
-	<div class="loadmore">Chargement en cours...</div>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".cont_com").magnificPopup({
-				delegate: "a", // selection de la balise des liens des images
-				type: "image"
-				// autres options
-			});
-		});
-	</script>	
+	if ($('#back-to-top').length) {
+	    var scrollTrigger = 100, // px
+	        backToTop = function () {
+	            var scrollTop = $(window).scrollTop();
+	            if (scrollTop > scrollTrigger) {
+	                $('#back-to-top').addClass('show');
+	            } else {
+	                $('#back-to-top').removeClass('show');
+	            }
+	        };
+	    backToTop();
+	    $(window).on('scroll', function () {
+	        backToTop();
+	    });
+	    $('#back-to-top').on('click', function (e) {
+	        e.preventDefault();
+	        $('html,body').animate({
+	            scrollTop: 0
+	        }, 700);
+	    });
+	}
+	</script>
+	<a href="#0" class="cd-top">Top</a>
+	<div class="loadmore">Chargement en cours...</div>
 </body>
 </html>

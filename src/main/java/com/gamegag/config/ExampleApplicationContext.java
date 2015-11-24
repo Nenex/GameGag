@@ -4,6 +4,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
  * @author Petri Kainulainen
@@ -31,5 +32,12 @@ public class ExampleApplicationContext {
     @Bean
     public PropertySourcesPlaceholderConfigurer propertyPlaceHolderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
+    }
+    
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver createMultipartResolver() {
+        CommonsMultipartResolver resolver=new CommonsMultipartResolver();
+        resolver.setDefaultEncoding("utf-8");
+        return resolver;
     }
 }

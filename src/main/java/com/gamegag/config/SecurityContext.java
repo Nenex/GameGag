@@ -39,6 +39,7 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 //Configures form login
+        		//.csrf().disable()
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/login/authenticate")
@@ -59,7 +60,8 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
                                 "/login",
                                 "**/signup/**",
                                 "**/user/register/**",
-                                "/admin/**"
+                                "/admin/**",
+                                "/upload/**"
                         ).permitAll()
                         //The rest of the our application is protected.
                         //.antMatchers("/public/**").hasRole("USER")

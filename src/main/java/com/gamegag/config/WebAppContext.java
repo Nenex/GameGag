@@ -22,6 +22,7 @@ import java.util.Properties;
 		"com.gamegag.app.controller",
         "com.gamegag.common.controller",
         "com.gamegag.security.controller",
+        "com.gamegag.dropzone.controller",
         "com.gamegag.user.controller"
 })
 @EnableWebMvc

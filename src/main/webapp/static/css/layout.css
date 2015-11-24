@@ -97,8 +97,8 @@ img.imgleft {
 .container .bodycontainer {
 	margin: 0 auto;
 	width: 100%;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
 	max-width: 1040px;
 }
 
@@ -198,8 +198,8 @@ img.imgleft {
 }
 
 #headercont {
-	padding-top: 40px;
-	padding-bottom: 30px;
+	padding-top: 5em;
+	padding-bottom: 5em;
 }
 
 #headercont h1 {
@@ -224,8 +224,8 @@ img.imgleft {
 
 #headercont a.togglepanel {
 	float: right;
-	color: #FFF;
-	background: #2846DC;
+	color: #ffffff;
+	background: #E80E18;
 	padding: 10px 12px;
 	font-size: 26px;
 	-webkit-border-radius: 6px;
@@ -237,17 +237,18 @@ img.imgleft {
 a.logout {
 	float: right;
 	color: #FFF;
-	background: #2846DC;
+	background: #222222;
 	padding: 10px 12px;
 	font-size: 20px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
 	margin-right : 0.3em;
+	underline:none;
 }
 
 #headercont a:hover.togglepanel {
-	color: #455CFF;
+	color: #E80E18;
 	background: #fff;
 }
 
@@ -396,3 +397,168 @@ span[class="menu_item"] {
   border: 5px solid #eee;
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
 }
+
+a{
+    text-decoration: inherit;
+    color:#fff;
+    background-color: inherit;
+}
+
+a:hover.logout {
+	color:white;
+}
+
+.details{
+	  border-radius: 10px;
+	  margin-top:2em;
+}
+
+.head-posts{
+	margin-top: 1em;
+	margin-bottom: 1em; 
+}
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background: #f5f5f5;
+    color: #444;
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+#back-to-top:hover {
+    background: #e9ebec;
+}
+#back-to-top.show {
+    opacity: 1;
+}
+#content {
+    height: 2000px;
+}
+
+.widget-area {
+background-color: #fff;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-ms-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-o-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+float: left;
+margin-top: 30px;
+padding: 25px 30px;
+position: relative;
+width: 100%;
+}
+.status-upload {
+background: none repeat scroll 0 0 #f5f5f5;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+float: left;
+width: 100%;
+}
+.status-upload form {
+float: left;
+width: 100%;
+
+}
+.status-upload form textarea {
+background: none repeat scroll 0 0 #fff;
+border: medium none;
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+-ms-border-radius: 4px 4px 0 0;
+-o-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+color: #777777;
+float: left;
+font-family: Lato;
+font-size: 14px;
+height: 100%;
+letter-spacing: 0.3px;
+padding: 20px;
+width: 100%;
+resize:vertical;
+outline:none;
+border: 1px solid #F2F2F2;
+}
+
+.status-upload ul {
+float: left;
+list-style: none outside none;
+margin: 0;
+padding: 0 0 0 15px;
+width: auto;
+}
+.status-upload ul > li {
+float: left;
+}
+.status-upload ul > li > a {
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+color: #777777;
+float: left;
+font-size: 14px;
+height: 30px;
+line-height: 30px;
+margin: 10px 0 10px 10px;
+text-align: center;
+-webkit-transition: all 0.4s ease 0s;
+-moz-transition: all 0.4s ease 0s;
+-ms-transition: all 0.4s ease 0s;
+-o-transition: all 0.4s ease 0s;
+transition: all 0.4s ease 0s;
+width: 30px;
+cursor: pointer;
+}
+.status-upload ul > li > a:hover {
+background: none repeat scroll 0 0 #606060;
+color: #fff;
+}
+.status-upload form button {
+border: medium none;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+color: #fff;
+float: right;
+font-family: Lato;
+font-size: 14px;
+letter-spacing: 0.3px;
+margin-right: 9px;
+margin-top: 9px;
+padding: 6px 15px;
+}
+.dropdown > a > span.green:before {
+border-left-color: #2dcb73;
+}
+.status-upload form button > i {
+margin-right: 7px;
+}
+
+.status-upload {
+margin-top: 3em;
+
+}
+

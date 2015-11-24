@@ -12,7 +12,8 @@ public class ModeratorController {
 
     @RequestMapping(value="/moderator", method = RequestMethod.GET)
     public String showAdminHomePage() {
-        return VIEW_NAME_MOD_HOMEPAGE;
+//        return VIEW_NAME_MOD_HOMEPAGE;
+        return "moderator/fileUploader";
     }
     
     @RequestMapping(value="/moderator/manage", method = RequestMethod.GET)
