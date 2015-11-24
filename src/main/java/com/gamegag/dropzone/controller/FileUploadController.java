@@ -11,6 +11,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gamegag.app.model.Post;
+import com.gamegag.app.repository.PostRepository;
 import com.gamegag.common.controller.HomeController;
 import com.gamegag.dropzone.model.UploadedFile;
 import com.gamegag.dropzone.service.FileUploadService;
@@ -31,6 +33,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller 
 public class FileUploadController {
+
+
+@Autowired
+private PostRepository repo_post;
 
 //  @Autowired
 //  private FileUploadService uploadService;
@@ -54,6 +60,8 @@ public class FileUploadController {
     List<UploadedFile> uploadedFiles = new ArrayList<UploadedFile>();
     String target = requestS.getParameter("target");
     String idImage = requestS.getParameter("imgId");
+    
+    
     // Iterate through the map
     for (MultipartFile multipartFile : fileMap.values()) {
 
@@ -61,7 +69,21 @@ public class FileUploadController {
      saveFileToLocalDisk(multipartFile,target,idImage);
 
     }
+    
+    switch (target) {
+	case "post":
+		Long id 	= Long.parseLong(idImage,10);
+		Post post = repo_post.findOne(id);
+		FileController file = new FileController(target);
+		String fileName = file.getRelativePath()+file.getFileName(id);
+		post.setFilename(fileName);
+		repo_post.save(post);
+		break;
 
+	default:
+		break;
+	}
+    
     return uploadedFiles;
   }
 //

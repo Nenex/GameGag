@@ -40,4 +40,8 @@ public class FileController {
 	public String getLocation(){
 		return "\\src\\main\\webapp\\static\\upload\\"+this.folder+"\\";
 	}
+	
+	public String getRelativePath(){
+		return "\\static\\upload\\"+this.folder+"\\";
+	}
 }
