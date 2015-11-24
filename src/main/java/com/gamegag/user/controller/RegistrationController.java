@@ -9,6 +9,8 @@ import com.gamegag.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionKey;
 import org.springframework.social.connect.UserProfile;
@@ -59,6 +61,20 @@ public class RegistrationController {
         LOGGER.debug("Rendering registration form with information: {}", registration);
 
         model.addAttribute(MODEL_NAME_REGISTRATION_DTO, registration);
+        return VIEW_NAME_REGISTRATION_PAGE;
+    }
+    
+    @RequestMapping(value = "/user/reset/password", method = RequestMethod.GET)
+    public String showResetPasswordForm(WebRequest request, Model model) {
+        LOGGER.debug("Rendering registration page.");
+
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//final User user = repository_user.findByEmail(userDetails.getUsername());
+		
+		
+		
+        
+        
         return VIEW_NAME_REGISTRATION_PAGE;
     }
 

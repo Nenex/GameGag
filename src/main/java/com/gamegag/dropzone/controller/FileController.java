@@ -44,4 +44,18 @@ public class FileController {
 	public String getRelativePath(){
 		return "\\static\\upload\\"+this.folder+"\\";
 	}
+	
+	public void clean(final String idImage){
+		File root = new File(new java.io.File("").getAbsolutePath() + getLocation());
+		FilenameFilter matchId = new FilenameFilter() {
+			public boolean accept(File directory, String filename) {
+				return filename.startsWith(idImage + "-");
+			}
+		};
+		String fileName = null;
+		File[] files = root.listFiles(matchId);
+		for (File f : files) {
+			f.delete();
+		}
+	}
 }

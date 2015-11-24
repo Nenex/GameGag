@@ -131,8 +131,8 @@ private PostRepository repo_post;
 //  }
 
   private String getOutputFilename(MultipartFile multipartFile,String target,String idImage) {
-	  LOGGER.debug("target location is : " + getDestinationLocation(target)+ multipartFile.getOriginalFilename());
-    return getDestinationLocation(target) +  idImage + "-" + multipartFile.getOriginalFilename();
+	  LOGGER.debug("target location is : " + getDestinationLocation(target,idImage)+ multipartFile.getOriginalFilename());
+    return getDestinationLocation(target,idImage) +  idImage + "-" + multipartFile.getOriginalFilename();
   }
 
 //  private UploadedFile getUploadedFileInfo(MultipartFile multipartFile) throws IOException {
@@ -146,8 +146,9 @@ private PostRepository repo_post;
 //    return fileInfo;
 //  }
 
-  private String getDestinationLocation(String target) {
+  private String getDestinationLocation(String target,String idImage) {
 	FileController file = new FileController(target);
+	file.clean(idImage);
     return new java.io.File("").getAbsolutePath()+file.getLocation();
   }
 }

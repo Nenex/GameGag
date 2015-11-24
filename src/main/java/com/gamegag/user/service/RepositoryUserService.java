@@ -1,6 +1,7 @@
 package com.gamegag.user.service;
 
 import com.gamegag.user.dto.RegistrationForm;
+import com.gamegag.user.dto.ResetPasswordForm;
 import com.gamegag.user.model.SocialMediaService;
 import com.gamegag.user.model.User;
 import com.gamegag.user.repository.UserRepository;
@@ -85,4 +86,26 @@ public class RepositoryUserService implements UserService {
 
         return encodedPassword;
     }
+
+	
+    @Override
+	public User resetPasswordAccount(ResetPasswordForm userAccountData) {
+		 /*String encodedPassword = encodePassword(userAccountData);
+		 User.Builder user = User.getBuilder()
+	                .email(userAccountData.getEmail())
+	                .firstName(userAccountData.getFirstName())
+	                .lastName(userAccountData.getLastName())
+	                .password(encodedPassword);
+
+	        if (userAccountData.isSocialSignIn()) {
+	            user.signInProvider(userAccountData.getSignInProvider());
+	        }
+
+	        User registered = user.build();
+
+	        LOGGER.debug("Persisting new user with information: {}", registered);
+
+	        return repository.save(registered);*/
+    	return null;
+	}
 }

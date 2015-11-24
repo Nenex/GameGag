@@ -1,6 +1,7 @@
 package com.gamegag.user.service;
 
 import com.gamegag.user.dto.RegistrationForm;
+import com.gamegag.user.dto.ResetPasswordForm;
 import com.gamegag.user.model.User;
 
 /**
@@ -15,4 +16,5 @@ public interface UserService {
      * @throws DuplicateEmailException Thrown when the email address is found from the database.
      */
     public User registerNewUserAccount(RegistrationForm userAccountData) throws DuplicateEmailException;
+    public User resetPasswordAccount(ResetPasswordForm userAccountData);
 }
