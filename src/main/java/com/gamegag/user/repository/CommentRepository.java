@@ -1,4 +1,4 @@
-package com.gamegag.app.repository;
+package com.gamegag.user.repository;
 
 
 
@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.gamegag.app.model.Comment;
-import com.gamegag.app.model.Post;
-import com.gamegag.app.model.Vote;
+import com.gamegag.user.model.Comment;
+import com.gamegag.user.model.Post;
+import com.gamegag.user.model.Vote;
 
 /**
  * @author Petri Kainulainen

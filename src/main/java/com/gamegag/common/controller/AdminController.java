@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.gamegag.app.model.Category;
-import com.gamegag.app.repository.CategoryRepository;
-import com.gamegag.app.repository.PostRepository;
+import com.gamegag.user.model.Category;
+import com.gamegag.user.repository.CategoryRepository;
+import com.gamegag.user.repository.PostRepository;
 import com.gamegag.user.model.User;
 import com.gamegag.user.repository.UserRepository;
 import com.gamegag.user.model.Role;

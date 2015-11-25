@@ -22,7 +22,6 @@ import com.gamegag.user.dto.ProfilForm;
 import com.gamegag.user.model.User;
 import com.gamegag.user.repository.UserRepository;
 import com.gamegag.user.service.UserService;
-
 @Controller
 public class MemberController {
 
@@ -64,27 +63,6 @@ public class MemberController {
 
 		return VIEW_PUBLIC_PROFIL;
 	}
-
-	/*
-	 * @RequestMapping(value="/user/profil/edit", method = RequestMethod.GET)
-	 * public String showPublicProfilEditPage(HttpServletRequest request,Model
-	 * model) { //Long id = Long.parseLong(request.getParameter("id"),10);
-	 * LOGGER.debug("Rendering public profil edit page."); UserDetails
-	 * userDetails =
-	 * (UserDetails)SecurityContextHolder.getContext().getAuthentication().
-	 * getPrincipal(); final User user =
-	 * repository_user.findByEmail(userDetails.getUsername());
-	 * //model.addAttribute("id",user.getId());
-	 * 
-	 * FileController file = new FileController("profil");
-	 * 
-	 * model.addAttribute("fileName",file.getFileName(user.getId()));
-	 * model.addAttribute("firstName",user.getFirstName());
-	 * model.addAttribute("lastName",user.getLastName());
-	 * model.addAttribute("id",user.getId());
-	 * 
-	 * return VIEW_PUBLIC_PROFIL_EDIT; }
-	 */
 
 	@RequestMapping(value = "/user/profil", method = RequestMethod.POST)
 	public @ResponseBody JsonResponse doLogin(@Valid @ModelAttribute(value = "profil") ProfilForm profil,

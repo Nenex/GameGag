@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gamegag.app.model.Post;
-import com.gamegag.app.repository.CategoryRepository;
-import com.gamegag.app.repository.PostRepository;
+import com.gamegag.user.model.Post;
+import com.gamegag.user.repository.CategoryRepository;
+import com.gamegag.user.repository.PostRepository;
 
 @Controller
 public class HomeController {

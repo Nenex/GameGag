@@ -1,8 +1,8 @@
-package com.gamegag.app.repository;
+package com.gamegag.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.gamegag.app.model.Category;
+import com.gamegag.user.model.Category;
 
 /**
  * @author Petri Kainulainen

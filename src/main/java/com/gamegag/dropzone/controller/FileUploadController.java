@@ -11,8 +11,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gamegag.app.model.Post;
-import com.gamegag.app.repository.PostRepository;
+import com.gamegag.user.model.Post;
+import com.gamegag.user.repository.PostRepository;
 import com.gamegag.common.controller.HomeController;
 import com.gamegag.dropzone.model.UploadedFile;
 import com.gamegag.dropzone.service.FileUploadService;

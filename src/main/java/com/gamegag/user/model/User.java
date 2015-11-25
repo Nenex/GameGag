@@ -1,6 +1,6 @@
 package com.gamegag.user.model;
 
-import com.gamegag.app.model.Post;
+import com.gamegag.user.model.Post;
 import com.gamegag.common.model.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.FetchMode;

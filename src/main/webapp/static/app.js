@@ -69,12 +69,13 @@ $(document).ready(
 										if(resp.status=="SUCCESS"){
 											
 											$("#imgId").val(resp.result);
-											if($("#drop-follow").is(":empty")){
-												$('#error').html("No modification to save.");
-								                $('#error').focus();
-											}else{
-												myDropzone.processQueue();
-											}
+//											if($("#drop-follow").is(":empty")){
+//												$('#error').html("No modification to save.");
+//								                $('#error').focus();
+//											}else{
+//												myDropzone.processQueue();
+//											}
+											myDropzone.processQueue();
 										}else if(resp.status=="FAIL"){
 											//errorInfo = "";
 							                 for(i =0 ; i < resp.result.length ; i++){

@@ -1,6 +1,6 @@
 package com.gamegag.security.dto;
 
-import com.gamegag.app.repository.CategoryRepository;
+import com.gamegag.user.repository.CategoryRepository;
 import com.gamegag.user.model.Role;
 import com.gamegag.user.model.SocialMediaService;
 import com.gamegag.user.repository.UserConnectionRepository;

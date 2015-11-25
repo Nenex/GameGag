@@ -1,4 +1,4 @@
-package com.gamegag.app.model;
+package com.gamegag.user.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
