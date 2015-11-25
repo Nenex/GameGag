@@ -33,12 +33,13 @@
   <sec:authorize access="isAuthenticated()">  	
 	<button type="button" id="btnVotePlus" onclick="votePlus()" class="btn btn-success btn-lg" <c:if test="${not empty userVote and userVote == true}"> disabled</c:if>><span class="glyphicon glyphicon-thumbs-up"></span><span id="votePlus">${voteplus}</span> Like</button>
 	<button type="button" id="btnVoteMoins" onclick="voteMoins()" class="btn btn-danger btn-lg" <c:if test="${not empty userVote and userVote == false}"> disabled</c:if>><span class="glyphicon glyphicon-thumbs-down"></span><span id="voteMoins">${votemoins}</span> Dislike</button>
-	<button type="button" class="btn btn-info btn-lg" ><span class="glyphicon glyphicon-edit"></span> Comment</button>
+	<a type="button" href="https://twitter.com/intent/tweet?hashtags=GameGag ${post.filename}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>Share</button></a>
+	<a type="button" href="http://www.facebook.com/sharer.php?u=${post.filename}" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span>Share</button></a>
   </sec:authorize>
   	<sec:authorize access="isAnonymous()">
 	<button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-thumbs-up"></span><span id="votePlus">${voteplus}</span> Like</button>
 	<button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-thumbs-down"></span><span id="voteMoins">${votemoins}</span> Dislike</button>
-	<button type="button" class="btn btn-info btn-lg" ><span class="glyphicon glyphicon-edit"></span> Comment</button>
+	<a type="button" href="https://twitter.com/intent/tweet?text=${post.filename}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>Share</button></a>
     </sec:authorize>
 </div>
 
@@ -53,10 +54,11 @@
 		<div class="col-md-10">
 
 			<div class="status-upload">
-				<form>
-					<textarea placeholder="What are you doing right now?"></textarea>
-
-					<button type="submit" class="btn btn-success green">
+				<form action="${pageContext.request.contextPath}/user/post/comment" method="post">
+					<textarea name="comment" placeholder="What are you doing right now?"></textarea>
+					<input type="hidden" name="${_csrf.parameterName}"	value="${_csrf.token}" />
+					<input type="hidden" name="id_post"	value="${post.id}" />					
+					<button type="submit" onclick class="btn btn-success green">
 						<i class="fa fa-share"></i> Share
 					</button>
 				</form>
@@ -83,7 +85,7 @@
 			var cptPlus = parseInt($("#votePlus").html());			
 			cptPlus = cptPlus + 1;
 			$.ajax({
-				url: '/public/post/vote/${post.id}/true',
+				url: '/user/post/vote/${post.id}/true',
 				type: 'get',
 				success: function(vote) {
 					$("#votePlus").text(cptPlus.toString());

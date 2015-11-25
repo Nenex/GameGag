@@ -43,9 +43,7 @@
 <body id="pagetop">
 	<div class="container clearfix">
 		<div id="headercont" class="bodycontainer clearfix">
-			<h1>
-				<a title="" href="#">GameGag </a>
-			</h1>
+			<h1><a title="" href="/public"><img class="logo_page" src="${pageContext.request.contextPath}/static/images/logo.png"></a></h1>
 			<p>
 				<a title="" href="#sidebar" class="togglepanel"><span
 					class="fa fa-bars"></span></a>

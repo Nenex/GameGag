@@ -24,7 +24,7 @@
 				alt="Blabla" />
 		</div>
 	</div>
-
+	
 	<div class="container head-posts">
 		<div class="page-header">
 			<h1>

@@ -182,4 +182,27 @@ public class PostController {
         }
         return json;  
     }
+    
+    
+    @RequestMapping(value = "/user/post/comment", method = RequestMethod.POST)
+	public String createComment(HttpServletRequest request) {
+		try {
+	    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	        String name = auth.getName(); //get logged in username
+	        User userConnected = repo_user.findByEmail(name);       
+			Comment c = new Comment();
+			c.setId((long) 0);
+			c.setPost(repo_post.findOne(Long.parseLong(request.getParameter("id_post"),10)));
+			c.setUser(userConnected);
+			c.setComment(request.getParameter("comment"));
+			c.setCreationTime(new DateTime());
+			c.setDisabled(false);
+			repo_comment.save(c);
+			return "redirect:/public/post/details/" + request.getParameter("id_post");
+			
+		} catch (Exception e) {
+			LOGGER.debug(e.getMessage());
+			return "error";
+		}
+	}
 }
