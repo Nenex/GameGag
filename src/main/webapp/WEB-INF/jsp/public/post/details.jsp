@@ -103,7 +103,7 @@
 			var cptMoins = parseInt($("#voteMoins").html());
 			cptMoins = cptMoins + 1;
 			$.ajax({				
-				url: '/public/post/vote/${post.id}/false',
+				url: '/user/post/vote/${post.id}/false',
 				type: 'get',
 				success: function(vote) {
 					$("#voteMoins").text(cptMoins.toString());

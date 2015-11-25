@@ -26,6 +26,7 @@
 						method="POST" id="dropzone-form" enctype="utf8" role="form">
 						<input type="hidden" name="${_csrf.parameterName}"
 							value="${_csrf.token}" />
+						<input type="hidden" name="ignore" value="ignore" id="ignore" />
 						<input type="hidden" name="target" id="target" value="profil" />
 						<input type="hidden" name="imgId" id="imgId" value="${id}" />
 
@@ -90,6 +91,7 @@
 						<spring:message code="label.user.registration.submit.button" />
 					</button> --%>
 					<span id="error"></span>
+					<span id="success"></span>
 				</form:form>
 				<button id="upload-button" class="btn btn-primary">
 					<span class="glyphicon glyphicon-upload"></span> Save

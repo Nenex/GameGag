@@ -47,7 +47,9 @@ public class RepositoryUserService implements UserService {
                 .email(userAccountData.getEmail())
                 .firstName(userAccountData.getFirstName())
                 .lastName(userAccountData.getLastName())
-                .password(encodedPassword);
+                .password(encodedPassword)
+                .filename("\\static\\upload\\profil\\anonyme.jpg");
+        		
 
         if (userAccountData.isSocialSignIn()) {
             user.signInProvider(userAccountData.getSignInProvider());

@@ -34,6 +34,7 @@ public class MemberController {
 	private UserRepository repository_user;
 	@Autowired
 	private UserService service;
+	
 
 	@RequestMapping(value = "/user/profil", method = RequestMethod.GET)
 	public String showPublicProfilPage(Model model) {

@@ -1,6 +1,5 @@
 package com.gamegag.dropzone.controller;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,15 +10,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gamegag.user.model.Post;
-import com.gamegag.user.repository.PostRepository;
-import com.gamegag.common.controller.HomeController;
-import com.gamegag.dropzone.model.UploadedFile;
-import com.gamegag.dropzone.service.FileUploadService;
-import com.gamegag.user.model.User;
-import com.gamegag.user.repository.UserRepository;
-
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +17,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.gamegag.common.controller.HomeController;
+import com.gamegag.dropzone.model.UploadedFile;
+import com.gamegag.security.service.RepositoryUserDetailsService;
+import com.gamegag.user.model.Post;
+import com.gamegag.user.model.User;
+import com.gamegag.user.repository.PostRepository;
+import com.gamegag.user.repository.UserRepository;
 
 @Controller 
 public class FileUploadController {
@@ -47,6 +43,8 @@ private PostRepository repo_post;
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired private UserRepository repository_user;
+	
+	private RepositoryUserDetailsService reposervice;
 	
   @RequestMapping("/")
   public String home() {
@@ -104,6 +102,8 @@ private PostRepository repo_post;
 	default:
 		break;
 	}
+     UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    //userDetails =  reposervice.loadUserByUsername(userDetails.getUsername());
     
     return uploadedFiles;
   }

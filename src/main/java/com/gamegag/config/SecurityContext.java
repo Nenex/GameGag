@@ -66,6 +66,7 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
                         //The rest of the our application is protected.
                         //.antMatchers("/public/**").hasRole("USER")
                         .antMatchers("/user/profil/**").hasAnyRole("USER", "MODERATOR", "ADMIN")
+                        .antMatchers("/user/post/**").hasAnyRole("USER", "MODERATOR", "ADMIN")
                         .antMatchers("/moderator/**").hasAnyRole("MODERATOR", "ADMIN")
                         .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()

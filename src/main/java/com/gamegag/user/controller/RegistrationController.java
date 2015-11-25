@@ -1,18 +1,10 @@
 package com.gamegag.user.controller;
 
-import com.gamegag.security.util.SecurityUtil;
-import com.gamegag.user.dto.RegistrationForm;
-import com.gamegag.user.model.SocialMediaService;
-import com.gamegag.user.model.User;
-import com.gamegag.user.repository.UserRepository;
-import com.gamegag.user.service.DuplicateEmailException;
-import com.gamegag.user.service.UserService;
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionKey;
 import org.springframework.social.connect.UserProfile;
@@ -24,15 +16,16 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.request.WebRequest;
 
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import com.gamegag.security.util.SecurityUtil;
+import com.gamegag.user.dto.RegistrationForm;
+import com.gamegag.user.model.SocialMediaService;
+import com.gamegag.user.model.User;
+import com.gamegag.user.repository.UserRepository;
+import com.gamegag.user.service.DuplicateEmailException;
+import com.gamegag.user.service.UserService;
 
 /**
  * @author Petri Kainulainen
@@ -141,20 +134,7 @@ public class RegistrationController {
         return "public/test";
     }
     
-   /* @RequestMapping(value = "/public/user/savePassword", method = RequestMethod.POST)
-    public String savePassword(HttpServletRequest request) {
-    	LOGGER.debug("post reset");
-    	String password = request.getParameter("password");
-    	
-    	System.out.println("coucou det");
-    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println("coucou user");
-    	System.out.println(userDetails.getUsername());
-    	User user = repository_user.findByEmail(userDetails.getUsername());
-    	user = service.changeUserPassword(user, password);
-        
-        return "/index";
-    }*/
+   
     
 
     /**

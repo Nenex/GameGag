@@ -116,6 +116,10 @@ public class User extends BaseEntity<Long> {
     public String getLastName() {
         return lastName;
     }
+    
+    public String getfilename() {
+        return filename;
+    }
 
     public String getPassword() {
         return password;
@@ -144,6 +148,7 @@ public class User extends BaseEntity<Long> {
                 .append("modificationTime", this.getModificationTime())
                 .append("signInProvider", this.getSignInProvider())
                 .append("version", this.getVersion())
+                .append("filename", this.getfilename())
                 .toString();
     }
 
@@ -168,6 +173,11 @@ public class User extends BaseEntity<Long> {
 
         public Builder lastName(String lastName) {
             user.lastName = lastName;
+            return this;
+        }
+        
+        public Builder filename(String filename) {
+            user.filename = filename;
             return this;
         }
 

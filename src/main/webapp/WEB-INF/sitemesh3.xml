@@ -4,7 +4,7 @@
 	    <decorator>/WEB-INF/layout/layout.jsp</decorator>
 	</mapping>
 	<mapping>
-	    <path>/WEB-INF/jsp/user/*</path>
+	    <path>/WEB-INF/jsp/user/**</path>
 	    <decorator>/WEB-INF/layout/layout.jsp</decorator>
 	</mapping>
 	<mapping>

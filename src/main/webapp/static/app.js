@@ -69,12 +69,16 @@ $(document).ready(
 										if(resp.status=="SUCCESS"){
 											
 											$("#imgId").val(resp.result);
-//											if($("#drop-follow").is(":empty")){
-//												$('#error').html("No modification to save.");
-//								                $('#error').focus();
-//											}else{
-//												myDropzone.processQueue();
-//											}
+											
+											if($("#drop-follow").is(":empty") && !$("#ignore").val()){
+												console.log("post");
+												$('#error').html("Need to upload a file.");
+								                $('#error').focus();
+											}else{
+												$('#error').html("Save completed.");
+												console.log("other");
+												myDropzone.processQueue();
+											}
 											myDropzone.processQueue();
 										}else if(resp.status=="FAIL"){
 											//errorInfo = "";
@@ -113,7 +117,7 @@ $(document).ready(
 					this.on("success", function(file) {
 						switch ($("#target").val()) {
 						case "profil":
-							window.location.reload()
+							window.location.href = "/logout";
 							break;
 						case "post":
 							window.location.href = window.location.protocol
