@@ -16,14 +16,14 @@
 }
 
 .dz-details {
-	border-bottom: 1px solid LightGray;
+	/* border-bottom: 1px solid LightGray; */
 }
 
 .dz-progress {
-	
-	margin-top: 15px;
+	display: none;
+	/* margin-top: 15px;
 	background-color: #f5f5f5;
-	border-radius: 4px;
+	border-radius: 4px; */
 }
 
 .dz-upload { 

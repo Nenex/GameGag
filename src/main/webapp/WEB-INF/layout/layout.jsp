@@ -19,6 +19,7 @@
 	<script src="${pageContext.request.contextPath}/static/js/layout.js"></script>
 	<script src="${pageContext.request.contextPath}/static/js/jquery.magnific-popup.min.js"></script>
 	<link href="${pageContext.request.contextPath}/static/css/js-image-slider.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/style.css">
 	<script src="${pageContext.request.contextPath}/static/js/js-image-slider.js" type="text/javascript"></script>
 </head>
 <body id="pagetop">
@@ -60,7 +61,7 @@
 			<sec:authorize access="isAuthenticated()">
 			<li><a class="menu_item" href=""><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span class="menu_item">Post</span></a></li>
 			<sec:authorize access="isAuthenticated()"> 
-			<li><a class="menu_item" href="/public/profil"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span class="menu_item">User profil</span></a></li>
+			<li><a class="menu_item" href="/user/profil"><img alt="" class ="iconmenu" src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span class="menu_item">User profil</span></a></li>
 			</sec:authorize>
 			</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">

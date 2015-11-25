@@ -4,6 +4,7 @@ import com.gamegag.security.util.SecurityUtil;
 import com.gamegag.user.dto.RegistrationForm;
 import com.gamegag.user.model.SocialMediaService;
 import com.gamegag.user.model.User;
+import com.gamegag.user.repository.UserRepository;
 import com.gamegag.user.service.DuplicateEmailException;
 import com.gamegag.user.service.UserService;
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionKey;
 import org.springframework.social.connect.UserProfile;
@@ -22,9 +24,14 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.request.WebRequest;
 
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 /**
@@ -41,6 +48,8 @@ public class RegistrationController {
     protected static final String VIEW_NAME_REGISTRATION_PAGE = "user/registrationForm";
 
     private UserService service;
+    @Autowired
+    private UserRepository repository_user;
 
     @Autowired
     public RegistrationController(UserService service) {
@@ -61,20 +70,6 @@ public class RegistrationController {
         LOGGER.debug("Rendering registration form with information: {}", registration);
 
         model.addAttribute(MODEL_NAME_REGISTRATION_DTO, registration);
-        return VIEW_NAME_REGISTRATION_PAGE;
-    }
-    
-    @RequestMapping(value = "/user/reset/password", method = RequestMethod.GET)
-    public String showResetPasswordForm(WebRequest request, Model model) {
-        LOGGER.debug("Rendering registration page.");
-
-        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		//final User user = repository_user.findByEmail(userDetails.getUsername());
-		
-		
-		
-        
-        
         return VIEW_NAME_REGISTRATION_PAGE;
     }
 
@@ -138,6 +133,29 @@ public class RegistrationController {
 
         return "redirect:/";
     }
+    
+    @RequestMapping(value = "/public/user/savePassword", method = RequestMethod.GET)
+  
+    public String test() {
+    	
+        return "public/test";
+    }
+    
+   /* @RequestMapping(value = "/public/user/savePassword", method = RequestMethod.POST)
+    public String savePassword(HttpServletRequest request) {
+    	LOGGER.debug("post reset");
+    	String password = request.getParameter("password");
+    	
+    	System.out.println("coucou det");
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println("coucou user");
+    	System.out.println(userDetails.getUsername());
+    	User user = repository_user.findByEmail(userDetails.getUsername());
+    	user = service.changeUserPassword(user, password);
+        
+        return "/index";
+    }*/
+    
 
     /**
      * Creates a new user account by calling the service method. If the email address is found

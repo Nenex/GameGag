@@ -3,33 +3,17 @@ package com.gamegag.user.dto;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.gamegag.user.model.SocialMediaService;
-import com.gamegag.user.validation.PasswordsNotEmpty;
 import com.gamegag.user.validation.PasswordsNotEqual;
 
-/**
- * @author Petri Kainulainen
- */
-@PasswordsNotEmpty(
-        triggerFieldName = "signInProvider",
-        passwordFieldName = "password",
-        passwordVerificationFieldName = "passwordVerification"
-)
+
 @PasswordsNotEqual(
         passwordFieldName = "password",
         passwordVerificationFieldName = "passwordVerification"
 )
-public class RegistrationForm {
-
-    public static final String FIELD_NAME_EMAIL = "email";
-
-    @Email
-    @NotEmpty
-    @Size(max = 100)
-    private String email;
+public class ProfilForm {
 
     @NotEmpty
     @Size(max = 100)
@@ -43,27 +27,11 @@ public class RegistrationForm {
 
     private String passwordVerification;
 
-    private SocialMediaService signInProvider;
-
-    public RegistrationForm() {
+    public ProfilForm() {
 
     }
 
-    public boolean isNormalRegistration() {
-        return signInProvider == null;
-    }
-
-    public boolean isSocialSignIn() {
-        return signInProvider != null;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  
 
     public String getFirstName() {
         return firstName;
@@ -97,21 +65,12 @@ public class RegistrationForm {
         this.passwordVerification = passwordVerification;
     }
 
-    public SocialMediaService getSignInProvider() {
-        return signInProvider;
-    }
-
-    public void setSignInProvider(SocialMediaService signInProvider) {
-        this.signInProvider = signInProvider;
-    }
-
+   
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .append("email", email)
                 .append("firstName", firstName)
                 .append("lastName", lastName)
-                .append("signInProvider", signInProvider)
                 .toString();
     }
 }

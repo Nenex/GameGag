@@ -65,8 +65,8 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
                         ).permitAll()
                         //The rest of the our application is protected.
                         //.antMatchers("/public/**").hasRole("USER")
-                        .antMatchers("/moderator/**").hasRole("MODERATOR")
-                        .antMatchers("/moderator/**").hasRole("ADMIN")
+                        .antMatchers("/user/profil/**").hasAnyRole("MEMBER", "MODERATOR", "ADMIN")
+                        .antMatchers("/moderator/**").hasAnyRole("MODERATOR", "ADMIN")
                         .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 	.exceptionHandling().accessDeniedPage("/403")

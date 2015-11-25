@@ -16,11 +16,15 @@ import com.gamegag.app.repository.PostRepository;
 import com.gamegag.common.controller.HomeController;
 import com.gamegag.dropzone.model.UploadedFile;
 import com.gamegag.dropzone.service.FileUploadService;
+import com.gamegag.user.model.User;
+import com.gamegag.user.repository.UserRepository;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +45,8 @@ private PostRepository repo_post;
 //  @Autowired
 //  private FileUploadService uploadService;
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
+	
+	@Autowired private UserRepository repository_user;
 	
   @RequestMapping("/")
   public String home() {
@@ -79,7 +85,22 @@ private PostRepository repo_post;
 		post.setFilename(fileName);
 		repo_post.save(post);
 		break;
-
+	case "profil":
+		LOGGER.debug(this.getClass().toString()+" try profil");
+		Long idProfil 	= Long.parseLong(idImage,10);
+		LOGGER.debug(this.getClass().toString()+" try profil id");
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		LOGGER.debug(this.getClass().toString()+" try profil 1");
+		final User user = repository_user.findByEmail(userDetails.getUsername());
+		LOGGER.debug(this.getClass().toString()+" try profil 2");
+		FileController fileProfil = new FileController(target);
+		LOGGER.debug(this.getClass().toString()+" try profil 3");
+		String fileNameProfil = fileProfil.getRelativePath()+fileProfil.getFileName(idProfil);
+		LOGGER.debug(this.getClass().toString()+" try profil 4");
+		user.setFilename(fileNameProfil);
+		LOGGER.debug(this.getClass().toString()+" try profil 5");
+		repository_user.save(user);
+		break;
 	default:
 		break;
 	}

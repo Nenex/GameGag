@@ -69,8 +69,19 @@ public class User extends BaseEntity<Long> {
 
     @Column(name = "password", length = 255)
     private String password;
+    
+    @Column(name = "filename", length = 255, nullable = true)
+    private String filename;
+    
+    public String getFilename() {
+		return filename;
+	}
 
-    @Enumerated(EnumType.STRING)
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	@Enumerated(EnumType.STRING)
     @Column(name = "role", length = 20, nullable = false)
     private Role role;
 

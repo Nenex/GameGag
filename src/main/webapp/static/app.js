@@ -14,14 +14,11 @@ $(document).ready(
 
 				this.classList.remove('drag-over');
 			}
-			console.log("===========================================");
-			console.log(window.location.protocol + "//"
-					+ window.location.host
-					+ window.location.pathname);
-			console.log("===========================================");
 
 			// "dropzoneForm" is the camel-case version of the form id
 			// "dropzone-form"
+			console.log(window.location.protocol + "//" + window.location.host
+					+ "/upload/" + "?target=" + $('#target').val());
 			Dropzone.options.dropzoneForm = {
 
 				url : window.location.protocol + "//" + window.location.host
@@ -31,31 +28,25 @@ $(document).ready(
 				maxFilesize : 10, // MB
 				parallelUploads : 1,
 				maxFiles : 1,
-				addRemoveLinks : true,
+				addRemoveLinks : false,
 				previewsContainer : ".dropzone-previews",
 
 				// The setting up of the dropzone
 				init : function() {
-					
+
 					var myDropzone = this;
 
 					// first set autoProcessQueue = false
 					$('#upload-button').on(
 							"click",
 							function(e) {
-							
+								$('span[id^="error"]').each(function(){
+									$(this).html("");
+								});
 								var dataForm = $('#form-inf').serialize();
 								console.log(dataForm);
-								// var id = $("#id_category").val();
-								// var title = $("#id_category").val();
-								// var description = $("#id_category").val();
 								var token = $("input[name='_csrf']").val();
 								var header = "X-CSRF-TOKEN";
-								console.log("===========================================");
-								console.log(window.location.protocol + "//"
-										+ window.location.host
-										+ window.location.pathname);
-								console.log("===========================================");
 								$.ajax({
 									type : "POST",
 									url : window.location.protocol + "//"
@@ -71,14 +62,30 @@ $(document).ready(
 										"Cache-Control" : "no-cache",
 										"X-Requested-With" : "XMLHttpRequest"
 									},
-									complete : function(resp) {
+									success : function(resp) {
 										// a voir/
-										$("#imgId").val(resp.responseText);
-										console.log(resp.responseText);
+										console.log(resp);
+										console.log(resp.result);
+										if(resp.status=="SUCCESS"){
+											
+											$("#imgId").val(resp.result);
+											if($("#drop-follow").is(":empty")){
+												$('#error').html("No modification to save.");
+								                $('#error').focus();
+											}else{
+												myDropzone.processQueue();
+											}
+										}else if(resp.status=="FAIL"){
+											//errorInfo = "";
+							                 for(i =0 ; i < resp.result.length ; i++){
+							                     //errorInfo += "<br>" + (i + 1) +". " + resp.result[i].code;
+							                	 console.log(resp.result[i].field);
+							                	 console.log(resp.result[i].code);
+							                     $("#error-"+resp.result[i].field).html(resp.result[i].code);
+							                 }
+										}
 									}
 								});
-
-								myDropzone.processQueue();
 							});
 
 					// customizing the default progress bar
@@ -91,30 +98,36 @@ $(document).ready(
 						progressBar.innerHTML = progress + "%";
 					});
 
-					// displaying the uploaded files information in a Bootstrap
-					// dialog
-					this.on("successmultiple", function(files, serverResponse) {
-						showInformationDialog(files, serverResponse);
+					this.on("maxfilesexceeded", function(file) {
+						this.removeAllFiles();
+						this.addFile(file);
 					});
+					// displaying the uploaded files information in a
+					// Bootstrap
+					// dialog
+					// this.on("successmultiple", function(files,
+					// serverResponse) {
+					// // showInformationDialog(files, serverResponse);
+					// });
 					this.on("success", function(file) {
-						// redirection vert get id xx de romaric
-						switch($("#target").val()){
+						switch ($("#target").val()) {
 						case "profil":
-							window.location.href=window.location.protocol + "//"
-							+ window.location.host
-							+ window.location.pathname;
-								break;
+							window.location.reload()
+							break;
 						case "post":
-							window.location.href = window.location.protocol + "//" + window.location.host + "/public/post/details/"+$('#imgId').val();
+							window.location.href = window.location.protocol
+									+ "//" + window.location.host
+									+ "/public/post/details/"
+									+ $('#imgId').val();
 							break;
 						default:
 							break;
 						}
-						
+
 					});
 
 					this.on("sending", function(file, xhr, formData) {
-						var token = $("input[name='_csrf']").val();
+						var token = $(".dropzone input[name='_csrf']").val();
 						var header = "X-CSRF-TOKEN";
 						xhr.setRequestHeader(header, token);
 						console.log(formData);
@@ -122,28 +135,29 @@ $(document).ready(
 				}
 			}
 
-			function showInformationDialog(files, objectArray) {
-
-				var responseContent = "";
-
-				for (var i = 0; i < objectArray.length; i++) {
-
-					var infoObject = objectArray[i];
-
-					for ( var infoKey in infoObject) {
-						if (infoObject.hasOwnProperty(infoKey)) {
-							responseContent = responseContent + " " + infoKey
-									+ " -> " + infoObject[infoKey] + "<br>";
-						}
-					}
-					responseContent = responseContent + "<hr>";
-				}
-
-				// from the library bootstrap-dialog.min.js
-				BootstrapDialog.show({
-					title : '<b>Server Response</b>',
-					message : responseContent
-				});
-			}
+			// function showInformationDialog(files, objectArray) {
+			//
+			// var responseContent = "";
+			//
+			// for (var i = 0; i < objectArray.length; i++) {
+			//
+			// var infoObject = objectArray[i];
+			//
+			// for ( var infoKey in infoObject) {
+			// if (infoObject.hasOwnProperty(infoKey)) {
+			// responseContent = responseContent + " "
+			// + infoKey + " -> "
+			// + infoObject[infoKey] + "<br>";
+			// }
+			// }
+			// responseContent = responseContent + "<hr>";
+			// }
+			//
+			// // from the library bootstrap-dialog.min.js
+			// BootstrapDialog.show({
+			// title : '<b>Server Response</b>',
+			// message : responseContent
+			// });
+			// }
 
 		});

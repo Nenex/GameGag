@@ -9,7 +9,7 @@
 <head>
 <title></title>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/app/user.form.js"></script>
+	src="${pageContext.request.contextPath}/static/js/app/profil.form.js"></script>
 </head>
 <body>
 	<!--     <div class="page-header"> -->

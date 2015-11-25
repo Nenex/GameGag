@@ -17,5 +17,5 @@
 	</mapping>
 	<mapping path="/WEB-INF/jsp/admin/manage_role.jsp" exclue="true"/>
 	<mapping path="/WEB-INF/jsp/admin/manage_category.jsp" exclue="true"/>
-	<mapping path="/WEB-INF/jsp/public/edit.jsp" exclue="true"/>
+	<mapping path="/WEB-INF/jsp/user/edit.jsp" exclue="true"/>
 </sitemesh>
