@@ -57,7 +57,7 @@ public class MemberController {
 		LOGGER.debug("Rendering profil form with information: {}", dto);
 
 		model.addAttribute("profil", dto);
-
+		
 		model.addAttribute("fileName", file.getFileName(user.getId()));
 		model.addAttribute("firstName", user.getFirstName());
 		model.addAttribute("lastName", user.getLastName());
