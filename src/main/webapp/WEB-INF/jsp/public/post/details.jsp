@@ -58,14 +58,14 @@
 					<span class="glyphicon glyphicon-thumbs-down"></span><span
 						id="voteMoins">${votemoins}</span> Dislike
 				</button>
-				<a type="button"
+				<%-- <a type="button"
 					href="https://twitter.com/intent/tweet?hashtags=GameGag ${post.filename}"
 					class="btn btn-info btn-lg"><span class="fa fa-twitter"></span>Share
 					</button></a>
 				<a type="button"
 					href="http://www.facebook.com/sharer.php?u=${post.filename}"
 					class="btn btn-primary btn-lg"><span class="fa fa-facebook"></span>Share
-					</button></a>
+					</button></a> --%>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">
 				<button type="button" class="btn btn-success btn-lg">
@@ -76,11 +76,20 @@
 					<span class="glyphicon glyphicon-thumbs-down"></span><span
 						id="voteMoins">${votemoins}</span> Dislike
 				</button>
-				<a type="button"
+				<%-- <a type="button"
 					href="https://twitter.com/intent/tweet?text=${post.filename}"
 					class="btn btn-info btn-lg"><span class="fa fa-twitter"></span>Share
-					</button></a>
+					</button></a> --%>
 			</sec:authorize>
+			
+			<a type="button"
+					href="https://twitter.com/intent/tweet?hashtags=GameGag ${post.filename}"
+					class="btn btn-info btn-lg"><span class="fa fa-twitter"></span>Share
+					</a>
+				<a type="button"
+					href="http://www.facebook.com/sharer.php?u=${post.filename}"
+					class="btn btn-primary btn-lg"><span class="fa fa-facebook"></span>Share
+					</a>
 		</div>
 
 	</div>
