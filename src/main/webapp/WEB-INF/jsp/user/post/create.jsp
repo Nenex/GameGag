@@ -10,7 +10,7 @@
 <body>
 
 <div
-		class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+		class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<strong> Post </strong>
@@ -28,7 +28,7 @@
 					<div
 						class="dz-default dz-message file-dropzone text-center well col-sm-12">
 
-						<span class="glyphicon glyphicon-paperclip"></span><span> Change image
+						<span class="glyphicon glyphicon-paperclip"></span><span> Upload image
 						</span>
 					</div>
 					<!-- this is were the previews should be shown. -->
@@ -42,7 +42,7 @@
 						value="${_csrf.token}" />
 					<div class="form-group">
 						<label class="col-lg-3 control-label" for="Category"><spring:message
-								code="label.post.Category" />:</label>
+								code="label.post.Category" /></label>
 						<div class="col-lg-6">
 							<select class="form-control" name="id_category" id="id_category">
 								<c:forEach var="item" items="${categoryList}">
@@ -56,19 +56,19 @@
 						<span class="input-group-addon"><i
 							class="fa fa-circle-o-notch"></i></span>
 						<form:input id="post-title" path="title"
-							cssClass="post-control" placeholder="title" />
+							cssClass="post-control col-sm-12" placeholder="title" /><br>
 						<span id="error-title"></span>
 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-tag"></i></span>
-						<form:input id="post-description" path="description"
-							cssClass="post-control" placeholder="description" />
+						<form:textarea id="post-description" path="description"
+							cssClass="post-control col-sm-12" placeholder="description" />
 						<span id="error-description"></span>
-					</div>
+					</div><br>
 					<span id="error"></span>
 				</form:form>
-				<button id="upload-button" class="btn btn-primary">
+				<button id="upload-button" class="btn btn-primary col-md-offset-9">
 						<span class="glyphicon glyphicon-upload"></span> Save
 					</button>
 			</div>

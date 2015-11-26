@@ -27,9 +27,6 @@
 	
 	<div class="container head-posts">
 		<div class="page-header">
-			<h1>
-				<spring:message code="label.homepage.title" />
-			</h1>
 		</div>
 	</div>
 	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
@@ -39,6 +36,7 @@
 				<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
 					<a class="thumbnail" href="/public/post/details/${post.id}"> 
 						<video id="video-control" class="img-src img-responsive" width="320" height="240" poster="${post.filename}"></video>
+						<span style="text-align:center;display: block;">${post.title}</span>
 						
 					</a>
 				</div>
@@ -122,7 +120,7 @@
 									break;
 								}
 								
-				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="/public/post/details/'+ post.id + '"><video id="video-control" class="img-responsive width="320" height="240" poster="'+ post.filename + '"></video></a></div>', {
+				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="/public/post/details/'+ post.id + '"><video id="video-control" class="img-responsive width="320" height="240" poster="'+ post.filename + '"></video><span style="text-align:center;display: block;">'+ post.title + '</span></a></div>', {
 				                }));
 				            });
 							/* On actualise la valeur offset

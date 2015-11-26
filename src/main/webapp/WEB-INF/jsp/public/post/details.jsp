@@ -82,12 +82,14 @@
 					</button></a> --%>
 			</sec:authorize>
 			
-			<a type="button"
-					href="https://twitter.com/intent/tweet?hashtags=GameGag ${post.filename}"
+			<a type="button" target="_blank"
+					href="https://twitter.com/share"
+					 data-url="gamegag.com:${pageContext.request.localPort}/${post.filename}"
+					 data-hashtags="GameGag" 
 					class="btn btn-info btn-lg"><span class="fa fa-twitter"></span>Share
 					</a>
-				<a type="button"
-					href="http://www.facebook.com/sharer.php?u=${post.filename}"
+				<a type="button" target="_blank"
+					href="http://www.facebook.com/sharer.php?u=gamegag.com:${pageContext.request.localPort}/${post.filename}"
 					class="btn btn-primary btn-lg"><span class="fa fa-facebook"></span>Share
 					</a>
 		</div>

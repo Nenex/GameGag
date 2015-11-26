@@ -25,7 +25,7 @@ $(document).ready(
 						+ "/upload/" + "?target=" + $('#target').val(),
 				autoProcessQueue : false,
 				uploadMultiple : false,
-				maxFilesize : 10, // MB
+				maxFilesize : 15, // MB
 				parallelUploads : 1,
 				maxFiles : 1,
 				addRemoveLinks : false,
