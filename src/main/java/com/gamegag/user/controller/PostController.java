@@ -26,9 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gamegag.dropzone.controller.FileController;
 import com.gamegag.user.dto.PostForm;
-import com.gamegag.user.dto.ProfilForm;
 import com.gamegag.user.model.Comment;
 import com.gamegag.user.model.Post;
 import com.gamegag.user.model.User;
@@ -38,7 +36,6 @@ import com.gamegag.user.repository.CommentRepository;
 import com.gamegag.user.repository.PostRepository;
 import com.gamegag.user.repository.UserRepository;
 import com.gamegag.user.repository.VoteRepository;
-import com.gamegag.user.service.UserService;
 
 @Controller
 public class PostController {

@@ -1,16 +1,22 @@
 package com.gamegag.user.model;
 
-import com.gamegag.user.model.Post;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gamegag.common.model.BaseEntity;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.hibernate.FetchMode;
-import org.hibernate.annotations.Fetch;
-
-import java.util.List;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.gamegag.common.model.BaseEntity;
 
 /**
  * @author Petri Kainulainen

@@ -1,23 +1,21 @@
 package com.gamegag.security.dto;
 
-import com.gamegag.user.repository.CategoryRepository;
-import com.gamegag.user.model.Role;
-import com.gamegag.user.model.SocialMediaService;
-import com.gamegag.user.repository.UserConnectionRepository;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.social.security.SocialUser;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.social.security.SocialUser;
+
+import com.gamegag.user.model.Role;
+import com.gamegag.user.model.SocialMediaService;
+
 /**
  * @author Petri Kainulainen
  */
+@SuppressWarnings("serial")
 public class ExampleUserDetails extends SocialUser {
 	
 
@@ -82,7 +80,7 @@ public class ExampleUserDetails extends SocialUser {
 
     public static class Builder {
 
-    	@Autowired private UserConnectionRepository userConnectionRepo;
+    	//@Autowired private UserConnectionRepository userConnectionRepo;
     	
         private Long id;
 

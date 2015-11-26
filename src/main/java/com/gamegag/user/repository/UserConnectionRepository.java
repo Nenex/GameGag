@@ -1,9 +1,8 @@
 package com.gamegag.user.repository;
 
-import com.gamegag.user.model.User;
-import com.gamegag.user.model.UserConnection;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.gamegag.user.model.UserConnection;
 
 /**
  * @author Petri Kainulainen

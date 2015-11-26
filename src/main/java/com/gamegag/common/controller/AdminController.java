@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gamegag.user.model.Category;
-import com.gamegag.user.repository.CategoryRepository;
-import com.gamegag.user.repository.PostRepository;
-import com.gamegag.user.model.User;	
-import com.gamegag.user.repository.UserRepository;
 import com.gamegag.user.model.Role;
+import com.gamegag.user.model.User;
+import com.gamegag.user.repository.CategoryRepository;
+import com.gamegag.user.repository.UserRepository;
 @Controller
 public class AdminController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
@@ -28,7 +27,7 @@ public class AdminController {
     protected static final String VIEW_NAME_ADMIN_MANAGE_CATEGORY = "admin/manage_category";
     protected static final String VIEW_NAME_ADMIN_MANAGE_ROLE = "admin/manage_role";
     
-    @Autowired private PostRepository repository_app;
+    //@Autowired private PostRepository repository_app;
     @Autowired private UserRepository repository_user;
     @Autowired private CategoryRepository repository_category;
     

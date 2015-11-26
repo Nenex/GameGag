@@ -1,15 +1,15 @@
 package com.gamegag.user.service;
 
-import com.gamegag.user.dto.RegistrationForm;
-import com.gamegag.user.model.SocialMediaService;
-import com.gamegag.user.model.User;
-import com.gamegag.user.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.gamegag.user.dto.RegistrationForm;
+import com.gamegag.user.model.User;
+import com.gamegag.user.repository.UserRepository;
 
 /**
  * @author Petri Kainulainen

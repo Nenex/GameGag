@@ -25,7 +25,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.gamegag.common.controller.HomeController;
 import com.gamegag.dropzone.model.UploadedFile;
-import com.gamegag.security.service.RepositoryUserDetailsService;
 import com.gamegag.security.util.SecurityUtil;
 import com.gamegag.user.model.Post;
 import com.gamegag.user.model.User;
@@ -45,7 +44,7 @@ private PostRepository repo_post;
 	
 	@Autowired private UserRepository repository_user;
 	
-	private RepositoryUserDetailsService reposervice;
+	//private RepositoryUserDetailsService reposervice;
 	
   @RequestMapping("/")
   public String home() {

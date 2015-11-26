@@ -3,7 +3,6 @@ package com.gamegag.user.dto;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.gamegag.user.validation.PasswordsNotEqual;

@@ -52,7 +52,6 @@ public class FileController {
 				return filename.startsWith(idImage + "-");
 			}
 		};
-		String fileName = null;
 		File[] files = root.listFiles(matchId);
 		for (File f : files) {
 			f.delete();

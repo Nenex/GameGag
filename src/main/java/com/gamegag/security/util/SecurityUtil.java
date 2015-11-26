@@ -1,15 +1,13 @@
 package com.gamegag.security.util;
 
-import com.gamegag.security.dto.ExampleUserDetails;
-import com.gamegag.user.model.User;
-import com.gamegag.user.repository.UserConnectionRepository;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import com.gamegag.security.dto.ExampleUserDetails;
+import com.gamegag.user.model.User;
 
 /**
  * @author Petri Kainulainen
@@ -17,7 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class SecurityUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityUtil.class);
-    @Autowired private  static UserConnectionRepository repository_connection;
+    //@Autowired private  static UserConnectionRepository repository_connection;
     
     public static void logInUser(User user) {
         LOGGER.info("Logging in user: {}", user);

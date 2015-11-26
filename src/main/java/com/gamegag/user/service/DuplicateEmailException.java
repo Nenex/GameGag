@@ -5,6 +5,7 @@ package com.gamegag.user.service;
  * phase is already found from the database.
  * @author Petri Kainulainen
  */
+@SuppressWarnings("serial")
 public class DuplicateEmailException extends Exception {
 
     public DuplicateEmailException(String message) {

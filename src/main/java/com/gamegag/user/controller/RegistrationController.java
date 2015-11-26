@@ -23,7 +23,6 @@ import com.gamegag.security.util.SecurityUtil;
 import com.gamegag.user.dto.RegistrationForm;
 import com.gamegag.user.model.SocialMediaService;
 import com.gamegag.user.model.User;
-import com.gamegag.user.repository.UserRepository;
 import com.gamegag.user.service.DuplicateEmailException;
 import com.gamegag.user.service.UserService;
 
@@ -41,8 +40,8 @@ public class RegistrationController {
     protected static final String VIEW_NAME_REGISTRATION_PAGE = "user/registrationForm";
 
     private UserService service;
-    @Autowired
-    private UserRepository repository_user;
+    //@Autowired
+    //private UserRepository repository_user;
 
     @Autowired
     public RegistrationController(UserService service) {
@@ -94,7 +93,8 @@ public class RegistrationController {
     /**
      * Processes the form submissions of the registration form.
      */
-    @RequestMapping(value ="/user/register", method = RequestMethod.POST)
+    @SuppressWarnings("deprecation")
+	@RequestMapping(value ="/user/register", method = RequestMethod.POST)
     public String registerUserAccount(@Valid @ModelAttribute("user") RegistrationForm userAccountData,
                                       BindingResult result,
                                       WebRequest request) throws DuplicateEmailException {
