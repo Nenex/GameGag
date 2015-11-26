@@ -32,7 +32,7 @@ public class RegistrationForm {
     @Size(max = 100)
     private String email;
 
-    @Pattern(regexp="[a-zA-Z]")
+    
     @NotEmpty
     @Size(max = 100)
     private String firstName;

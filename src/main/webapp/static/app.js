@@ -117,7 +117,7 @@ $(document).ready(
 					this.on("success", function(file) {
 						switch ($("#target").val()) {
 						case "profil":
-							window.location.href = "/logout";
+							window.location.href = window.location.href;
 							break;
 						case "post":
 							window.location.href = window.location.protocol

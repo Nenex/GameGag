@@ -35,10 +35,11 @@
 	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
 	<div class="container">
 		<div class="cont_com">
-			<c:forEach var="post" items="${posts}" begin="1" end="5">
+			<c:forEach var="post" items="${posts}" begin="0" end="4">
 				<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="${post.id}">
-					<a class="thumbnail" href="/public/post/details/${post.id}"> <img
-						class="img-responsive" src="${post.filename}">
+					<a class="thumbnail" href="/public/post/details/${post.id}"> 
+						<video id="video-control" class="img-src img-responsive" width="320" height="240" poster="${post.filename}"></video>
+						
 					</a>
 				</div>
 			</c:forEach>
@@ -47,7 +48,33 @@
 	
 	
 	<script type="text/javascript">
-		$(document).ready(function(){ // Quand le document est complètement chargé
+		$(document).ready(function(){ 
+			var re = /(?:\.([^.]+))?$/;
+			$('.img-src').each(function(){
+				ext = re.exec($(this).attr('poster'))[1];
+				switch(ext){
+				case 'png':
+				case 'jpg':
+				case 'gif':
+				case 'jpeg':
+				case 'tiff':
+				case 'bmp':
+					break;
+				default:
+					$(this).attr('poster','/static/upload/post/playvideo.png');
+					break;
+				}
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// Quand le document est complètement chargé
 			var load = false; // aucun chargement de commentaire n'est en cours
 		 	/* la fonction offset permet de récupérer la valeur X et Y d'un élément
 			dans une page. Ici on récupère la position du dernier div qui 
@@ -79,7 +106,23 @@
 							le dernier commentaire */
 							//$('.image:last').after(data.toString());
 							$.each(posts, function(index, post) {
-				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="/public/post/details/'+ post.id + '"><img class="img-responsive" src="'+ post.filename + '"></a></div>', {
+								var re = /(?:\.([^.]+))?$/;
+								var ext = re.exec(post.filename)[1];
+								
+								switch(ext){
+								case 'png':
+								case 'jpg':
+								case 'gif':
+								case 'jpeg':
+								case 'tiff':
+								case 'bmp':
+									break;
+								default:
+									post.filename = "/static/upload/post/playvideo.png";
+									break;
+								}
+								
+				                $('.cont_com').append($('<div class="col-lg-3 col-md-4 col-xs-6 thumb" id="' + post.id + '"><a class="thumbnail" href="/public/post/details/'+ post.id + '"><video id="video-control" class="img-responsive width="320" height="240" poster="'+ post.filename + '"></video></a></div>', {
 				                }));
 				            });
 							/* On actualise la valeur offset
@@ -94,6 +137,7 @@
 		});
 	</script>
 	<script type="text/javascript">
+	
 	if ($('#back-to-top').length) {
 	    var scrollTrigger = 100, // px
 	        backToTop = function () {
@@ -116,7 +160,6 @@
 	    });
 	}
 	</script>
-	<a href="#0" class="cd-top">Top</a>
 	<div class="loadmore">Chargement en cours...</div>
 </body>
 </html>

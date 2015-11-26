@@ -56,33 +56,27 @@
       </sec:authorize>
       <sec:authorize access="isAuthenticated()">
 		  <li><a href="/logout"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-log-out"></span></button></a></li>
-	</sec:authorize>
+	
 	<li><a title="" href="#sidebar" class="togglepanel"><button type="button" class="btn btn-danger btn-lg"><span class="fa fa-bars"></span></button></a></li>
-      </ul>
+      </sec:authorize></ul>
     </div>
   </div>
 </nav>
+
 	<div class="container clearfix ">
 	</div>
 	<div id="sidebar">
 		<p class="closebutton">
 			<a title="" href="javascript:$.pageslide.close()">x</a>
 		</p>
+		<sec:authorize access="isAuthenticated()">
 		<div id="mainmenu" class="clearfix">
 			<ul>
-				<sec:authorize access="isAuthenticated()">
+				
 					<li>
 						<div class="profile-image">
-							<c:choose>
-								<c:when test="${empty fileName}">
-									<img class="circle" src="/static/upload/profil/anonyme.jpg"
+									<img class="circle" src="<sec:authentication property="principal.urlImage" />"
 										alt="Volton">
-								</c:when>
-								<c:otherwise>
-									<img class="circle" src="/static/upload/profil/ ${fileName}"
-										alt="Volton">
-								</c:otherwise>
-								</c:choose>
 						</div>
 
 						<div class="profile-content">
@@ -95,42 +89,30 @@
 							<hr>
 						</div>
 					</li>
-				</sec:authorize>
 				<li class="active"><a title="" href="/public"><img alt=""
 						class="iconmenu"
 						src="${pageContext.request.contextPath}/static/images/menu/appbar.home.empty.png"><span
-						class="menu_item">Accueil</span></a></li>
-				<li><a class="menu_item" href=""><img alt=""
-						class="iconmenu"
-						src="${pageContext.request.contextPath}/static/images/menu/appbar.alien.png"><span
-						class="menu_item">Category</span></a></li>
-				<li><a class="menu_item" href=""><img alt=""
-						class="iconmenu"
-						src="${pageContext.request.contextPath}/static/images/menu/appbar.video.png"><span
-						class="menu_item">Video</span></a></li>
-				<li><a class="menu_item" href=""><img alt=""
-						class="iconmenu"
-						src="${pageContext.request.contextPath}/static/images/menu/appbar.image.multiple.png"><span
-						class="menu_item">Gif</span></a></li>
-				<sec:authorize access="isAuthenticated()">
-					<li><a class="menu_item" href=""><img alt=""
+						class="menu_item">Home</span></a></li>
+				
+				
+					<li><a class="menu_item" href="/user/post/add"><img alt=""
 							class="iconmenu"
 							src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span
-							class="menu_item">Post</span></a></li>
-					<sec:authorize access="isAuthenticated()">
+							class="menu_item">Add Post</span></a></li>
+					
 						<li><a class="menu_item" href="/user/profil"><img alt=""
 								class="iconmenu"
 								src="${pageContext.request.contextPath}/static/images/menu/appbar.social.dropbox.upload.png"><span
 								class="menu_item">User profil</span></a></li>
-					</sec:authorize>
-				</sec:authorize>
-				<sec:authorize
+					
+				
+				<%-- <sec:authorize
 					access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') and isAuthenticated()">
 					<li><a class="menu_item" href="/moderator"><img alt=""
 							class="iconmenu"
 							src="${pageContext.request.contextPath}/static/images/menu/appbar.chromakey.png"><span
 							class="menu_item">Moderation</span></a></li>
-				</sec:authorize>
+				</sec:authorize> --%>
 				<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
 					<li><a class="menu_item" href="/admin"><img alt=""
 							class="iconmenu"
@@ -139,6 +121,7 @@
 				</sec:authorize>
 			</ul>
 		</div>
+		</sec:authorize>
 		
 	</div>
 	<div class="container">

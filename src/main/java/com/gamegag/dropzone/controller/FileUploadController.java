@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.gamegag.common.controller.HomeController;
 import com.gamegag.dropzone.model.UploadedFile;
 import com.gamegag.security.service.RepositoryUserDetailsService;
+import com.gamegag.security.util.SecurityUtil;
 import com.gamegag.user.model.Post;
 import com.gamegag.user.model.User;
 import com.gamegag.user.repository.PostRepository;
@@ -103,6 +104,8 @@ private PostRepository repo_post;
 		break;
 	}
      UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+     User user = repository_user.findByEmail(userDetails.getUsername());
+     SecurityUtil.logInUser(user);
     //userDetails =  reposervice.loadUserByUsername(userDetails.getUsername());
     
     return uploadedFiles;

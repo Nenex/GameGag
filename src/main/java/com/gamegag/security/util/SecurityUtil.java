@@ -31,7 +31,7 @@ public class SecurityUtil {
                 .role(user.getRole())
                 .socialSignInProvider(user.getSignInProvider())
                 .username(user.getEmail())
-                .urlImage("")
+                .urlImage(user.getfilename())
                 .build();
         LOGGER.debug("Logging in principal: {}", userDetails);
 

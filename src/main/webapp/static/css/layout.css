@@ -494,7 +494,7 @@ height: 100%;
 letter-spacing: 0.3px;
 padding: 20px;
 width: 100%;
-resize:vertical;
+resize:none;
 outline:none;
 border: 1px solid #F2F2F2;
 }

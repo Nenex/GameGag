@@ -16,10 +16,10 @@ import com.gamegag.user.model.Post;
  */
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-	@Query(value="SELECT p FROM Post p WHERE p.Id > :id")
-    public List<Post> findByIdInferiorAt(@Param("id") Long id,Pageable pageable);
-	
-	@Query(value="SELECT p FROM Post p")
+	@Query(value="SELECT p FROM Post p WHERE ( p.Id < :id ) ORDER BY p.Id DESC")
+	public List<Post> findByIdInferiorAt(@Param("id") Long id,Pageable pageable);
+
+	@Query(value="SELECT p FROM Post p ORDER BY p.Id DESC")
 	public List<Post> findWithPageable(Pageable pageable);
 	
 	@Query(value="SELECT p FROM Post p WHERE p.Category = :Category")
