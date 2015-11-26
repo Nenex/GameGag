@@ -1,5 +1,6 @@
 package com.gamegag.user.dto;
 
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -31,6 +32,7 @@ public class RegistrationForm {
     @Size(max = 100)
     private String email;
 
+    @Pattern(regexp="[a-zA-Z]")
     @NotEmpty
     @Size(max = 100)
     private String firstName;

@@ -40,25 +40,29 @@
 	src="${pageContext.request.contextPath}/static/js/js-image-slider.js"
 	type="text/javascript"></script>
 </head>
-<body id="pagetop">
-	<div class="container clearfix">
-		<div id="headercont" class="bodycontainer clearfix">
-			<h1><a title="" href="/public"><img class="logo_page" src="${pageContext.request.contextPath}/static/images/logo.png"></a></h1>
-			<p>
-				<a title="" href="#sidebar" class="togglepanel"><span
-					class="fa fa-bars"></span></a>
-				<sec:authorize access="isAnonymous()">
-					<a href="${pageContext.request.contextPath}/user/register"
-						class="logout"><span class="glyphicon glyphicon-log-out"></span>Signup</a>
-					<a href="${pageContext.request.contextPath}/login" class="logout"><span
-						class="glyphicon glyphicon-log-out"></span>Login</a>
-				</sec:authorize>
-				<sec:authorize access="isAuthenticated()">
-					<a href="/logout" class="logout"><span
-						class="glyphicon glyphicon-log-out"></span>Logout</a>
-				</sec:authorize>
-			</p>
-		</div>
+<body id="pagetop" >
+
+<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/public">
+      <img alt="" src="${pageContext.request.contextPath}/static/images/logo2.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+      <sec:authorize access="isAnonymous()">
+        <li><a href="${pageContext.request.contextPath}/user/register"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-user"></span></button></a></li>
+        <li><a href="${pageContext.request.contextPath}/login"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-log-in"></span></button></a></li>
+      </sec:authorize>
+      <sec:authorize access="isAuthenticated()">
+		  <li><a href="/logout"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-log-out"></span></button></a></li>
+	</sec:authorize>
+	<li><a title="" href="#sidebar" class="togglepanel"><button type="button" class="btn btn-danger btn-lg"><span class="fa fa-bars"></span></button></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	<div class="container clearfix ">
 	</div>
 	<div id="sidebar">
 		<p class="closebutton">
@@ -135,6 +139,7 @@
 				</sec:authorize>
 			</ul>
 		</div>
+		
 	</div>
 	<div class="container">
 		<div class="content">

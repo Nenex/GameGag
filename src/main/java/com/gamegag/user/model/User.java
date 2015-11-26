@@ -1,6 +1,7 @@
 package com.gamegag.user.model;
 
 import com.gamegag.user.model.Post;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gamegag.common.model.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.FetchMode;
@@ -70,6 +71,7 @@ public class User extends BaseEntity<Long> {
     @Column(name = "password", length = 255)
     private String password;
     
+    @JsonIgnore
     @Column(name = "filename", length = 255, nullable = true)
     private String filename;
     

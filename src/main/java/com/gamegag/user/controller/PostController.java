@@ -142,9 +142,9 @@ public class PostController {
         return "/public/post/details";
 	}
 	
-    @RequestMapping(value="/public/post/vote/{id}/{userVote}", method = RequestMethod.GET)
-    @ResponseBody
-    public String updateVote( @PathVariable Long id,@PathVariable Boolean userVote) {
+	@RequestMapping(value="/user/post/vote/{id}/{userVote}", method = RequestMethod.GET)
+	@ResponseBody
+	public String updateVote( @PathVariable Long id,@PathVariable Boolean userVote) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
         User userConnected = repo_user.findByEmail(name);

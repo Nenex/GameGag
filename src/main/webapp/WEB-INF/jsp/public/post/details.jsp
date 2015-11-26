@@ -16,7 +16,6 @@
 <div class="col-md-12"><h2  style="margin:0;"><b>${post.title}</b></h2></div>
 
 <hr />
-
 </div>
 <a href="/public"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-home"></span> Home</button></a>
 		<div class="col-md-6 thumb">
@@ -33,23 +32,38 @@
   <sec:authorize access="isAuthenticated()">  	
 	<button type="button" id="btnVotePlus" onclick="votePlus()" class="btn btn-success btn-lg" <c:if test="${not empty userVote and userVote == true}"> disabled</c:if>><span class="glyphicon glyphicon-thumbs-up"></span><span id="votePlus">${voteplus}</span> Like</button>
 	<button type="button" id="btnVoteMoins" onclick="voteMoins()" class="btn btn-danger btn-lg" <c:if test="${not empty userVote and userVote == false}"> disabled</c:if>><span class="glyphicon glyphicon-thumbs-down"></span><span id="voteMoins">${votemoins}</span> Dislike</button>
-	<a type="button" href="https://twitter.com/intent/tweet?hashtags=GameGag ${post.filename}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>Share</button></a>
-	<a type="button" href="http://www.facebook.com/sharer.php?u=${post.filename}" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-edit"></span>Share</button></a>
+	<a type="button" href="https://twitter.com/intent/tweet?hashtags=GameGag ${post.filename}" class="btn btn-info btn-lg"><span class="fa fa-twitter"></span>Share</button></a>
+	<a type="button" href="http://www.facebook.com/sharer.php?u=${post.filename}" class="btn btn-primary btn-lg"><span class="fa fa-facebook"></span>Share</button></a>
   </sec:authorize>
   	<sec:authorize access="isAnonymous()">
 	<button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-thumbs-up"></span><span id="votePlus">${voteplus}</span> Like</button>
 	<button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-thumbs-down"></span><span id="voteMoins">${votemoins}</span> Dislike</button>
-	<a type="button" href="https://twitter.com/intent/tweet?text=${post.filename}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>Share</button></a>
+	<a type="button" href="https://twitter.com/intent/tweet?text=${post.filename}" class="btn btn-info btn-lg"><span class="fa fa-twitter"></span>Share</button></a>
     </sec:authorize>
 </div>
 
 </div>
-		<c:forEach var="comment"  items="${comments}">
-		<br />
-			${comment.user.firstName}
-		 	${comment.comment}
-		</c:forEach>
-	<div class="row">
+
+<c:forEach var="comment"  items="${comments}">
+<div class="row">
+  <div class="col-lg-8 col-sm-8 col-xs-12">
+    <ul class="media-list comments">
+      <li class="media">
+        <a class="pull-left" href="#">
+        <img class="media-object img-circle img-thumbnail" src="${comment.user.filename}" width="64" alt="Generic placeholder image">
+        </a>
+        <div class="media-body">
+          <h5 class="media-heading pull-left">${comment.user.firstName}</h5>
+          <br class="clearfix">
+          <p class="well">${comment.comment}</p>
+        </div>
+      </li>
+
+  </div>
+</div>
+</c:forEach>
+
+
 
 		<div class="col-md-10">
 
